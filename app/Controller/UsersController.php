@@ -15,6 +15,11 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('admin_add');
+    }
 /**
  * index method
  *
@@ -196,5 +201,21 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+	public function admin_login(){
+		//if already logged-in, redirect
+		if ($this->Session->check('Auth.User')) {
+			$this->redirect(array('admin' => true, 'controller' => 'dashboard', 'action' => 'index'));
+		}
+
+		// if we get the post information, try to authenticate
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->Session->setFlash(__('Welcome, ' . $this->Auth->user('username')), 'message', array('class' => 'alert-success'));
+				$this->redirect($this->Auth->redirectUrl());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password'), 'message', array('class' => 'alert-danger'));
+			}
+		}
 	}
 }

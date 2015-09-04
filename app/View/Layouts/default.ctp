@@ -38,7 +38,7 @@
 
   <body>
 
-    <?php echo $this->Element('navigation'); ?>
+    <?php echo $this->Element('front_nav'); ?>
 
     <div class="container">
 
