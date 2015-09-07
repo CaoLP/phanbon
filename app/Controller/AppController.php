@@ -65,6 +65,9 @@ class AppController extends Controller {
         //if($this->Session->check('use_debug') && $this->Session->read('use_debug')){
             $this->Toolbar = $this->Components->load('DebugKit.Toolbar');
         //}
+        if($this->request->prefix != "admin"){
+            $this->Auth->allow();
+        }
     }
     public function make_slug($text)
     {

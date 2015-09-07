@@ -14,11 +14,12 @@
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
 
+	?>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&amp;subset=latin,latin" rel="stylesheet" type="text/css">
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <?php echo $this->Html->css(array('theme.min','corporate.min' , 'extras.min')); ?>
 
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -29,24 +30,21 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
-    <style type="text/css">
-    	body{ padding: 70px 0px; }
-    </style>
-
   </head>
 
-  <body>
-
-    <?php echo $this->Element('front_nav'); ?>
-
-    <div class="container">
-
+  <body class="pace-on pace-counter">
+  <div class="pace-overlay"></div>
+    <?php echo $this->element('front_nav'); ?>
+  <div id="content" role="main">
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
+    <?php echo $this->element('front_footer'); ?>
 
-    </div><!-- /.container -->
-
+  </div>
+  <a class="go-top go-top-circle" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
+  <?php
+    echo $this->Html->script(array('theme.min','revolution.min','front'));
+    echo $this->fetch('script');
+  ?>
   </body>
 </html>
