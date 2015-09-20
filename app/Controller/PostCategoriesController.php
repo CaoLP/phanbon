@@ -56,7 +56,7 @@ class PostCategoriesController extends AppController {
 			}
 		}
 		$parentPostCategories = $this->PostCategory->ParentPostCategory->find('list');
-		$this->set(compact('parentPostCategories'));
+		$this->set(compact('parents'));
 	}
 
 /**
@@ -82,7 +82,7 @@ class PostCategoriesController extends AppController {
 			$this->request->data = $this->PostCategory->find('first', $options);
 		}
 		$parentPostCategories = $this->PostCategory->ParentPostCategory->find('list');
-		$this->set(compact('parentPostCategories'));
+		$this->set(compact('parents'));
 	}
 
 /**

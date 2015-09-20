@@ -34,8 +34,8 @@ class Menu extends AppModel {
 			),
 		),
 		'url' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

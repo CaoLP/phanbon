@@ -5,7 +5,7 @@ jQuery(document).ready(function()
         {
             delay: 7000,
             startwidth: 1170,
-            startheight: 480,
+            startheight: 550,
             onHoverStop: "on", // Stop Banner Timer at Hover on Slide on/off
             thumbWidth: 100, // Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
             thumbHeight: 50,

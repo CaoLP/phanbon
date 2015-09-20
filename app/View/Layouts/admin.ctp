@@ -49,6 +49,7 @@ if (AuthComponent::user()) {
             ?>
         </div>
         <div class="col-xs-12 col-sm-9 content">
+            <?php echo $this->Session->flash(); ?>
             <div class="panel panel-default">
                 <?php echo $this->fetch('content'); ?>
             </div>

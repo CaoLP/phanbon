@@ -20,8 +20,14 @@ class PostsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index($slug = null) {
 		$this->Post->recursive = 0;
+		if(!empty($slug))
+			$this->Paginator->settings = array(
+				'conditions' => array(
+					'PostCategory.slug'=>$slug
+				)
+			);
 		$this->set('posts', $this->Paginator->paginate());
 	}
 

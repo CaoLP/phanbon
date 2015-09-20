@@ -16,105 +16,13 @@ class MenusController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Menu->recursive = 0;
-		$this->set('menus', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Menu->exists($id)) {
-			throw new NotFoundException(__('Invalid menu'));
-		}
-		$options = array('conditions' => array('Menu.' . $this->Menu->primaryKey => $id));
-		$this->set('menu', $this->Menu->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Menu->create();
-			if ($this->Menu->save($this->request->data)) {
-				$this->Session->setFlash(__('The menu has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The menu could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		$parentMenus = $this->Menu->ParentMenu->find('list');
-		$this->set(compact('parentMenus'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Menu->exists($id)) {
-			throw new NotFoundException(__('Invalid menu'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Menu->save($this->request->data)) {
-				$this->Session->setFlash(__('The menu has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The menu could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-			}
-		} else {
-			$options = array('conditions' => array('Menu.' . $this->Menu->primaryKey => $id));
-			$this->request->data = $this->Menu->find('first', $options);
-		}
-		$parentMenus = $this->Menu->ParentMenu->find('list');
-		$this->set(compact('parentMenus'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Menu->id = $id;
-		if (!$this->Menu->exists()) {
-			throw new NotFoundException(__('Invalid menu'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Menu->delete()) {
-			$this->Session->setFlash(__('The menu has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The menu could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
-
-
-/**
  * admin_index method
  *
  * @return void
  */
 	public function admin_index() {
-		$this->Menu->recursive = 0;
-		$this->set('menus', $this->Paginator->paginate());
+		$menus = $this->Menu->find('all', array('conditions'=>array('Menu.parent_id'=>'')));
+		$this->set(compact('menus'));
 	}
 
 /**
@@ -139,6 +47,9 @@ class MenusController extends AppController {
  */
 	public function admin_add() {
 		if ($this->request->is('post')) {
+			if($this->request->data('Menu.url') == 'other'){
+				$this->request->data['Menu']['url'] = $this->request->data('Menu.url_other');
+			}
 			$this->Menu->create();
 			if ($this->Menu->save($this->request->data)) {
 				$this->Session->setFlash(__('The menu has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -147,8 +58,9 @@ class MenusController extends AppController {
 				$this->Session->setFlash(__('The menu could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$parentMenus = $this->Menu->ParentMenu->find('list');
-		$this->set(compact('parentMenus'));
+		$parents = $this->Menu->ParentMenu->find('list');
+		$this->set(compact('parents'));
+		$this->set('listUrls', $this->getControllerList());
 	}
 
 /**
@@ -163,6 +75,9 @@ class MenusController extends AppController {
 			throw new NotFoundException(__('Invalid menu'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			if($this->request->data('Menu.url') == 'other'){
+				$this->request->data['Menu']['url'] = $this->request->data('Menu.url_other');
+			}
 			if ($this->Menu->save($this->request->data)) {
 				$this->Session->setFlash(__('The menu has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
@@ -172,9 +87,12 @@ class MenusController extends AppController {
 		} else {
 			$options = array('conditions' => array('Menu.' . $this->Menu->primaryKey => $id));
 			$this->request->data = $this->Menu->find('first', $options);
+			$this->request->data['Menu']['url_other'] = $this->request->data['Menu']['url'];
+			$this->request->data['Menu']['url'] = 'other';
 		}
-		$parentMenus = $this->Menu->ParentMenu->find('list');
-		$this->set(compact('parentMenus'));
+		$parents = $this->Menu->ParentMenu->find('list');
+		$this->set(compact('parents'));
+		$this->set('listUrls', $this->getControllerList());
 	}
 
 /**
@@ -196,5 +114,38 @@ class MenusController extends AppController {
 			$this->Session->setFlash(__('The menu could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+	public function getControllerList()
+	{
+		$controllerClasses = App::objects('controller');
+		foreach ($controllerClasses as $controller) {
+			if ($controller != 'AppController') {
+				// Load the controller
+				App::import('Controller', str_replace('Controller', '', $controller));
+				// Load its methods / actions
+				$actionMethods = get_class_methods($controller);
+				foreach ($actionMethods as $key => $method) {
+
+					if ($method{0} == '_') {
+						unset($actionMethods[$key]);
+					}
+				}
+				// Load the ApplicationController (if there is one)
+				App::import('Controller', 'AppController');
+				$parentActions = get_class_methods('AppController');
+				$controllers[$controller] = array_diff($actionMethods, $parentActions);
+			}
+		}
+		$temp = array();
+		foreach ($controllers as $con => $acts) {
+			$con = str_replace('Controller', '', $con);
+			$con_name = strtolower(preg_replace('~([a-z])([A-Z])~', '\\1_\\2', $con));
+			foreach ($acts as $act) {
+				$act_name = strtolower(preg_replace('~([a-z])([A-Z])~', '\\1_\\2', $act));
+				$temp[Router::url(array('controller' => $con_name, 'action' => $act_name))] = Router::url(array('controller' => $con_name, 'action' => $act_name));
+			}
+		}
+		$temp['other'] = 'Đường dẫn khác';
+		return $temp;
 	}
 }

@@ -16,10 +16,11 @@
 		echo $this->fetch('css');
 
 	?>
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&amp;subset=latin,latin" rel="stylesheet" type="text/css">
-  	<!-- Latest compiled and minified CSS -->
+<!--    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,900%7CGentium+Basic:400italic&amp;subset=latin,latin" rel="stylesheet" type="text/css">-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <?php echo $this->Html->css(array('theme.min','corporate.min' , 'extras.min')); ?>
+    <?php echo $this->Html->css(array('theme.min','corporate.min' , 'extras.min', 'custom.front')); ?>
 
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

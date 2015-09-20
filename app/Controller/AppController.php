@@ -33,6 +33,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     public $components = array(
         'Session',
+        'Menu',
         'Auth' => array(
             'loginRedirect' => array(
                 'controller' => 'dashboard',
