@@ -4,7 +4,7 @@
              style="background-image: url('img/bg3.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"
              data-start="background-position: 50% -31px"
              data-0-top-bottom="background-position: 50% 50px"></div>
-        <div class="background-overlay grid-overlay-0" style="background-color: rgba(1,192,225,0.8);"></div>
+        <div class="background-overlay grid-overlay-0" style="background-color:  rgba(255, 0, 0, 0.81);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-2 text-center"></div>

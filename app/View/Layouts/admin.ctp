@@ -1,3 +1,4 @@
+<?php //debug($this->request)?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

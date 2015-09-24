@@ -53,6 +53,32 @@ class MediasController extends AppController{
     /**
      * Liste les médias
      **/
+    public function admin_index($ref,$ref_id){
+
+        if(!$this->canUploadMedias($ref, $ref_id)){
+            throw new ForbiddenException();
+        }
+        $this->loadModel($ref);
+        $this->set(compact('ref', 'ref_id'));
+        if(!in_array('Media', $this->$ref->Behaviors->loaded())){
+            return $this->render('nobehavior');
+        }
+        $id = isset($this->request->query['id']) ? $this->request->query['id'] : false;
+        $medias = $this->Media->find('all',array(
+            'conditions' => array('ref_id' => $ref_id,'ref' => $ref)
+        ));
+        $thumbID = false;
+        if($this->$ref->hasField('media_id')){
+            $this->$ref->id = $ref_id;
+            $thumbID = $this->$ref->field('media_id');
+        }
+        $extensions = $this->$ref->medias['extensions'];
+        $editor = isset($this->request->params['named']['editor']) ? $this->request->params['named']['editor'] : false;
+        $this->set(compact('id', 'medias', 'thumbID', 'editor', 'extensions'));
+    }
+    /**
+     * Liste les médias
+     **/
     public function load_media($ref,$ref_id){
         if($this->request->is('ajax')) $this->layout = 'ajax';
         $not_in = array();

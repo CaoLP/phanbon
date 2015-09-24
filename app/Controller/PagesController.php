@@ -44,8 +44,9 @@ class PagesController extends AppController {
  * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
-	public function home(){
-
+	public function home($action = null){
+		$slide = $this->Setting->getCacheSetting('slide');
+		$this->set(compact('slide'));
 	}
 	public function contact(){
 

@@ -7,7 +7,7 @@
 <div class="panel-body">
     <div class="col-md-12">
         <ul class="nav nav-pills nav-justified">
-            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>'.__('New Setting'), array('action' => 'add'), array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>' . __('New Setting'), array('action' => 'add'), array('escape' => false)); ?></li>
         </ul>
     </div>
     <div class="col-md-12">
@@ -15,9 +15,7 @@
         <table cellpadding="0" cellspacing="0" class="table table-striped">
             <thead>
             <tr>
-                <th></th>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
-                <th><?php echo $this->Paginator->sort('parent_id'); ?></th>
                 <th><?php echo $this->Paginator->sort('name'); ?></th>
                 <th><?php echo $this->Paginator->sort('key'); ?></th>
                 <th class="actions"></th>
@@ -26,19 +24,12 @@
             <tbody>
             <?php foreach ($settings as $setting): ?>
                 <tr>
-                    <td><?php
-                        if ($setting['Thumb']['file'])
-                            echo $this->Media->image($setting['Thumb']['file'], 50, 50, array('class' => 'thumbnail'));
-                        ?></td>
                     <td><?php echo h($setting['Setting']['id']); ?>&nbsp;</td>
-                    <td>
-                        <?php echo $this->Html->link($setting['ParentSetting']['name'], array('controller' => 'settings', 'action' => 'view', $setting['ParentSetting']['id'])); ?>
-                    </td>
                     <td><?php echo h($setting['Setting']['name']); ?>&nbsp;</td>
                     <td><?php echo h($setting['Setting']['key']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $setting['Setting']['id']), array('escape' => false)); ?>
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $setting['Setting']['id']), array('escape' => false)); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $setting['Setting']['key']), array('escape' => false)); ?>
                         <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $setting['Setting']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $setting['Setting']['id'])); ?>
                     </td>
                 </tr>

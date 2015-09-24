@@ -18,8 +18,11 @@ class MediaHelper extends AppHelper
         $html = $this->Form->input($field, $options);
         $models = $this->Form->_models;
         $model = key($models);
-        if (isset($this->request->data[$model]['id']) && !$this->explorer) {
-            $html .= '<input type="hidden" id="explorer" value="' . $this->Html->url(array('controller'=>'medias','action'=>'index',$model,$this->request->data[$model]['id'])) . '">';
+        $id = 0;
+        if(isset($this->request->data[$model]['id']))
+            $id = $this->request->data[$model]['id'];
+        if (!$this->explorer) {
+            $html .= '<input type="hidden" id="explorer" value="' . $this->Html->url(array('admin'=>false,'controller'=>'medias','action'=>'index',$model,$id)) . '">';
             $this->explorer = true;
         }
         return $html;

@@ -1,57 +1,48 @@
 <?php
 App::uses('AppModel', 'Model');
+
 /**
  * Setting Model
  *
  */
-class Setting extends AppModel {
+class Setting extends AppModel
+{
+    public $actsAs = array('Media');
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public $validate = array();
 
-    public $actsAs = array(
-        'Tree'
-    );
-/**
- * Validation rules
- *
- * @var array
- */
-	public $validate = array(
+    /**
+     * belongsTo associations
+     *
+     * @var array
+     */
+    public $belongsTo = array();
 
-	);
+    /**
+     * hasMany associations
+     *
+     * @var array
+     */
+    public $hasMany = array();
 
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-        'ParentSetting' => array(
-            'className' => 'Setting',
-            'foreignKey' => 'parent_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        )
-	);
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
-        'ChildSetting' => array(
-            'className' => 'Setting',
-            'foreignKey' => 'parent_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
-        ),
-	);
-
+    public function getCacheSetting($key)
+    {
+        $result = Cache::read($key);
+        if ($result)
+            return $result;
+        $result = $this->find('first',
+            array(
+                'conditions' => array(
+                    'Setting.key' => $key
+                )
+            )
+        );
+        if($result)
+            $result = json_decode($result['Setting']['data'],true);
+        return $result;
+    }
 }

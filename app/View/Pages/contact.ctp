@@ -87,7 +87,7 @@ echo $this->Html->script(array('https://maps.googleapis.com/maps/api/js?sensor=f
     <section class="section">
         <div class="background-media" data-0-top-bottom="background-position: 50% 50px" data-start="background-position: 50% -31px" style="background-image: url(images/corporate/blog06.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
         </div>
-        <div class="background-overlay grid-overlay-0" style="background-color: rgba(3,194,227,0.9);"></div>
+        <div class="background-overlay grid-overlay-0" style="background-color: rgba(255, 0, 0, 0.81);"></div>
         <div class="container-fullwidth container-vertical-middle">
             <div class="row vertical-middle">
                 <div class="col-md-3 text-center" style="background:rgba(0, 0, 0, 0.2);">

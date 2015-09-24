@@ -10,6 +10,10 @@
 </div>
 <div class="customers index panel-body">
 	<div class="row">
+		<div class="col-md-12 text-left">
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('New'),
+				array('action' => 'add'), array('escape' => false, 'class' => 'btn btn-sm')); ?>
+		</div>
 		<div class="col-md-12">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>

@@ -2,9 +2,31 @@
     text-transform: uppercase;
     font-size: 15px;
 }
+.menu .nav>.active>a,.menu .nav>.active>a:focus,.menu .nav>.active>a:hover{
+    color: #ff0000;
+}
+.menu .nav>li>a:hover, .menu .nav>li>a:focus{
+    color: #ff0000;
+    background: 0 0;
+}
+.menu .nav>li>a:hover:before, .menu .nav>li>a:focus:before {
+    opacity: 1;
+    width: 100%;
+    background-color: #ff0000;
+}
+.pace-counter .pace .pace-progress:after{
+    color : #ff0000;
+}
+
 h1.element-top-70{
     text-transform: uppercase;
 }
 .post .post-media .figure{
     width: 100%;
+}
+.figure-overlay{
+    background-color: rgba(255, 0, 0, 0.78);
+}
+.divider-border-inner{
+    background-color: #ff0000;
 }

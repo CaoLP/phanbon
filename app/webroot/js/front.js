@@ -1,6 +1,4 @@
-
-jQuery(document).ready(function()
-{
+jQuery(document).ready(function () {
     jQuery('.tp-banner').show().revolution(
         {
             delay: 7000,
@@ -36,3 +34,5 @@ jQuery(document).ready(function()
             shadow: 0
         });
 });
+
+

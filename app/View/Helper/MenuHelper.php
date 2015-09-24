@@ -37,7 +37,12 @@ class MenuHelper extends Helper
             if (!$submenu):
                 ?>
                 <li>
-                    <a href="<?php echo $item['Menu']['url']; ?>"  class="list-group-item <?php if ($item['Menu']['url'] == $this->request->here) echo 'active'; ?>"><i
+                    <a href="<?php echo $item['Menu']['url']; ?>"  class="list-group-item <?php
+                    if ($this->request->query('type') && $item['Menu']['url']  == $this->request->here . '?type=' . $this->request->query('type'))
+                        echo 'active';
+                    else if(!$this->request->query('type') && $item['Menu']['url'] == $this->request->here)
+                        echo 'active';
+                    ?>"><i
                             class="<?php echo $item['Menu']['icon']; ?>"></i><?php echo $item['Menu']['name']; ?>
                     </a>
                 </li>
@@ -49,7 +54,11 @@ class MenuHelper extends Helper
                     <a href="#sub' . $item['Menu']['id'] . '" class="list-group-item {active}" data-toggle="collapse">
                         <i class="' . $item['Menu']['icon'] . '"></i>' . $item['Menu']['name'] . ' <span class="glyphicon glyphicon-chevron-right"></span></a>
                     </li>';
-                if($item['Menu']['url'] == $this->request->here){
+
+                if ($this->request->query('type') && $item['Menu']['url']  == $this->request->here . '?type=' . $this->request->query('type')) {
+                    $in = 'in';
+                    $active = 'active';
+                }elseif(!$this->request->query('type') && $item['Menu']['url'] == $this->request->here){
                     $in = 'in';
                     $active = 'active';
                 }

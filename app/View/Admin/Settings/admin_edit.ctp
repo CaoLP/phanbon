@@ -7,25 +7,36 @@
 <div class="panel-body">
     <div class="col-md-12">
         <?php echo $this->Form->create('Setting', array('role' => 'form')); ?>
-
+        <?php echo $this->Form->hidden('id'); ?>
         <div class="form-group">
-            <?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id')); ?>
+            <?php echo $this->Form->input('name', array('class' => 'form-control', 'readonly'=>true, 'placeholder' => 'Name')); ?>
         </div>
         <div class="form-group">
-            <?php echo $this->Form->input('parent_id', array('class' => 'form-control','empty'=>__('__Select parent__'), 'placeholder' => 'Parent Id')); ?>
+            <?php echo $this->Form->input('key', array('class' => 'form-control', 'readonly'=>true, 'placeholder' => 'Key')); ?>
         </div>
-        <div class="form-group">
-            <?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name')); ?>
-        </div>
-        <div class="form-group">
-            <?php echo $this->Form->input('key', array('class' => 'form-control', 'placeholder' => 'Key')); ?>
-        </div>
-        <div class="form-group">
-            <?php echo $this->Form->input('data', array('class' => 'form-control', 'placeholder' => 'Data')); ?>
-        </div>
-        <div class="form-group">
-            <?php echo $this->Media->iframe('Setting', $this->request->data['Setting']['id']); ?>
-        </div>
+        <?php if($this->request->data('Setting.use_media') == 1){?>
+            <div class="form-group">
+                <?php echo $this->Media->iframe('Setting', $this->request->data('Setting.id')); ?>
+            </div>
+        <?php }?>
+        <?php foreach ($this->request->data('Setting.data') as $key => $setting) {
+            ?>
+            <div class="form-group">
+                <?php echo $this->Form->input('Setting.data.' . $key .'.value',
+                    array(
+                        'type' => $setting['type'],
+                        'class' => 'form-control',
+                        'value' => $setting['value'],
+                        'row'=>'30',
+                        'label'=>array('text' => $key )
+                    )
+                );
+                echo $this->Form->hidden('Setting.data.' . $key .'.key',array('value' => $key));
+                echo $this->Form->hidden('Setting.data.' . $key .'.type',array('value' => $setting['type']));
+                ?>
+            </div>
+            <?php
+        } ?>
         <div class="form-group">
             <?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
         </div>

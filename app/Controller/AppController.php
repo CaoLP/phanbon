@@ -68,7 +68,37 @@ class AppController extends Controller {
         //}
         if($this->request->prefix != "admin"){
             $this->Auth->allow();
+            $this->loadModel('Setting');
+            $global = $this->Setting->getCacheSetting('global');
+            $block_html = '';
+            if(
+                $this->request->params['controller'] == 'pages'
+                && $this->request->params['action'] == 'home'
+            ){
+
+                $blocks = $global['home_footer_blocks']['value'];
+                $blocks = explode(',' , $blocks);
+                foreach($blocks as $block){
+                    $block_vals = explode(':' , $block);
+                    if(count($block_vals) == 2){
+                        $this->loadModel($block_vals[0]);
+                        $func = $block_vals[1];
+                        $modal = $block_vals[0];
+                        $data = $this->$modal->$func();
+                        $block_html .= $this->render_view($data,$block_vals[1]);
+                    }
+                }
+            }
+            $this->set(compact('global','block_html'));
+
         }
+    }
+    public function canUploadMedias($model, $id){
+//        if($model == 'User' & $id = $this->Session->read('Auth.User.id')){
+//            return true; // Everyone can edit the medias for their own record
+//        }
+//        return $this->Session->read('Auth.User.role') == 'admin'; // Only admins can upload medias for everything else
+        return true;
     }
     public function make_slug($text)
     {
@@ -198,6 +228,13 @@ class AppController extends Controller {
         $text = strtolower($text);
 
         return $text;
+    }
+    public function render_view($data, $block){
+        $view = new View($this, false);
+        $view->set(compact($data));
+        $view->layout = "";
+        $html = $view->render('../Elements/Blocks/'.$block);
+        return $html;
     }
 }
 

@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Post extends AppModel {
 
+	public $actsAs = array('Media');
 /**
  * Validation rules
  *
@@ -71,4 +72,12 @@ class Post extends AppModel {
 			'order' => ''
 		)
 	);
+	public function top_products(){
+		return $this->find("all",array(
+			'conditions' => array(
+				'PostCategory.slug' => 'products'
+			),
+			'limit' => 6
+		));
+	}
 }

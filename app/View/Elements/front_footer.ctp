@@ -4,14 +4,10 @@
             <div class="row element-top-40 element-bottom-40 footer-columns-4">
                 <div class="col-sm-3">
                     <div class="sidebar-widget widget_text" id="text-2">
-                        <h3 class="sidebar-header">Công ty Cổ Phần BIOWAY HITECH</h3>
+                        <h3 class="sidebar-header"><?php echo $global['home_title']['value'];?></h3>
 
                         <div class="textwidget">
-                            <p>Địa chỉ: Lô Q1, đường N1, KCN An Nghiệp, Xã An Hiệp, HChâu Thành, T. Sóc Trăng</p>
-
-                            <p>Điện thoại: 079 3616 838 - 079 3627 838 - Fax: 079 3637 838</p>
-
-                            <p>Hotline: 0962 979 966 - Email: info@biowayhitech.com</p>
+                            <?php echo nl2br($global['address_des']['value']);?>
                         </div>
                     </div>
                 </div>
@@ -107,11 +103,11 @@
                     <div class="sidebar-widget widget_social">
                         <ul class="unstyled inline social-icons social-simple social-normal">
                             <li>
-                                <a data-iconcolor="#3b5998" href="corporate-index.html"> <i class="fa fa-facebook"></i>
+                                <a data-iconcolor="#3b5998" href="<?php echo $global['facebook_page']['value'];?>"> <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a data-iconcolor="#E45135" href="corporate-index.html"> <i
+                                <a data-iconcolor="#E45135" href="<?php echo $global['google_plus']['value'];?>"> <i
                                         class="fa fa-google-plus"></i> </a>
                             </li>
                         </ul>
