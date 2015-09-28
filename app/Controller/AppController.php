@@ -84,7 +84,6 @@ class AppController extends Controller {
                 $this->request->params['controller'] == 'pages'
                 && $this->request->params['action'] == 'home'
             ){
-
                 $blocks = $global['home_footer_blocks']['value'];
                 $blocks = explode(',' , $blocks);
                 foreach($blocks as $block){
@@ -97,6 +96,21 @@ class AppController extends Controller {
                         $block_html .= $this->render_view($data,$block_vals[1]);
                     }
                 }
+                $media_block_html = '';
+                $media_block = $global['home_medias']['value'];
+                $media_block = explode('|' , $media_block);
+                foreach($media_block as $block){
+                    $block_vals = explode(':' , $block, 3);
+                    if(count($block_vals) >= 2){
+                        $this->loadModel($block_vals[0]);
+                        $func = $block_vals[1];
+                        $param = !empty($block_vals[2])? json_decode($block_vals[2],true): array();
+                        $modal = $block_vals[0];
+                        $data = $this->$modal->$func($param);
+                        $media_block_html .= $this->render_view($data,$block_vals[1]);
+                    }
+                }
+                $this->set(compact('media_block_html'));
             }
             $this->set(compact('global','block_html'));
 
@@ -239,6 +253,7 @@ class AppController extends Controller {
         return $text;
     }
     public function render_view($data, $block){
+        $block = preg_replace('/\(.+\)/','', $block);
         $view = new View($this, false);
         $view->set(compact('data'));
         $view->layout = "";

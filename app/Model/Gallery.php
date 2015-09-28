@@ -46,4 +46,11 @@ class Gallery extends AppModel {
 	public $belongsTo = array(
 		
 	);
+	public function gallery_block($params){
+		$id = !empty($params['id'])? $params['id'] : 1;
+		$limit = !empty($params['limit'])? $params['limit'] : 8;
+		$result =  $this->find('first', array('conditions'=>array('Gallery.id'=>$id)));
+		$result = array_slice($result,0,$limit);
+		return $result;
+	}
 }

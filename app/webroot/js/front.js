@@ -59,9 +59,7 @@ $(function () {
                             break;
                         case 'media':
                             var remove_btn = '<a href="javascript:;" class="btn btn-danger remove-img"><i class="glyphicon glyphicon-remove"></i></a>';
-                            $(v).find('.figure').each(function(x,y){
-                                $(y).append(remove_btn);
-                            });
+                            $(v).append(remove_btn);
                             break;
                     }
                 }else{

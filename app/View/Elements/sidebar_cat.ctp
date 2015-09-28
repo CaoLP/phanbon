@@ -1,5 +1,5 @@
 <div class="sidebar-widget widget_categories" id="categories-5">
-    <h3 class="sidebar-header">Categories</h3>
+    <h3 class="sidebar-header">Danh mục</h3>
     <ul>
         <li class="cat-item">
             <a href="<?php echo $this->Html->url('/san-pham') ?>">Sản phẩm</a>
