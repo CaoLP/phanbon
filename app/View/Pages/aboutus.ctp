@@ -1,13 +1,7 @@
 <article>
     <section class="section">
-        <div class="background-media" style="" data-start="background-position: 50% -31px"
-             data-0-top-bottom="background-position: 50% 50px">
-            <video autoplay="autoplay" loop="loop" style="width: 100%; height: 100%;" class="section-background-video">
-                <source type="video/mp4" src="http://theme-background-videos.s3.amazonaws.com/corporate.m4v"/>
-                <source type="video/webm" src="http://theme-background-videos.s3.amazonaws.com/corporate.webm"/>
-            </video>
-        </div>
-        <div class="background-overlay " style="background-color: rgba(1,192,225,0.8);"></div>
+    
+        <div class="background-overlay " style="background-color: rgba(225,0,0,0.8);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-2  text-center"></div>
