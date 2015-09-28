@@ -1,31 +1,28 @@
 <footer id="footer">
     <section class="section">
+	    <div class="top-mask"></div>
         <div class="container">
-            <div class="row element-top-40 element-bottom-40 footer-columns-4">
-                <div class="col-sm-3">
+            <div class="row element-top-60 element-bottom-40 footer-columns-4">
+                <div class="col-sm-5">
                     <div class="sidebar-widget widget_text" id="text-2">
-                        <h3 class="sidebar-header"><?php echo $global['home_title']['value'];?></h3>
-
-                        <div class="textwidget">
-                            <?php echo nl2br($global['address_des']['value']);?>
-                        </div>
+                        <h3 class="sidebar-header">Cty Cổ Phần Phân Bón BIOWAY-HITECH</h3>
+					 <p><?php echo $global['address_center']['value']; ?>
+					<br> <i class="fa fa-phone"></i> &nbsp; <?php echo $global['address_phone']['value']; ?>
+					<br> <i class="fa fa-inbox"></i> &nbsp; <?php echo $global['address_fax']['value']; ?>
+					<br> <i class="fa fa-headphones"></i> &nbsp; <?php echo $global['address_hotline']['value']; ?></p>
+						
+						
+                       
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>3))?>
-                </div>
-                <div class="col-sm-3">
+				<div class="col-sm-3">
                     <?php echo $this->element('sidebar_cat')?>
                 </div>
-                <div class="col-sm-3">
-                    <div class="sidebar-widget widget_text">
-                        <h3 class="sidebar-header">Trụ sở chính</h3>
-
-                        <div class="textwidget">
-                            <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $global['google_latitude']['value']; ?>,<?php echo $global['google_longitude']['value']; ?>&zoom=14&size=270x198&maptype=roadmap&markers=color:green%7Clabel:C%7C<?php echo $global['google_latitude']['value']; ?>,<?php echo $global['google_longitude']['value']; ?>&sensor=false&key=AIzaSyC1MsSYQVcTF9NDJBrdlWyxK01h4tHqrXQ">
-                        </div>
-                    </div>
+                <div class="col-sm-4">
+                    <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>3))?>
                 </div>
+                
+               
             </div>
         </div>
     </section>

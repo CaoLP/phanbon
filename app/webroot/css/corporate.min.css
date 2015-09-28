@@ -1,10 +1,14 @@
+
+@import url(https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic&subset=latin,vietnamese);
+
 body {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
 }
 
     body, body input, body textarea, body .btn, body button {
-        font-family: 'Open Sans Condensed', sans-serif,sans-serif;
+        /*font-family: 'Open Sans Condensed', sans-serif,sans-serif;*/
+        font-family: 'Open Sans','Lobster', sans-serif;
     }
 
 blockquote p {
@@ -90,9 +94,16 @@ h1, h2, h3, h4, h5, h6 {
     color: #959494;
 }
 
+#categories-5 a{
+     color: #a00005!important;
+}
+
+.widget_recent_entries ul li a{
+    color: #1c1c1c!important;
+}
 .post-body {
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .post-extras, .post-extras a {
@@ -2048,8 +2059,18 @@ input[type="button"] {
 }
 
 #footer {
-    background-color: #3c3c3c;
     color: rgba(255,255,255,.6);
+    background: url(../img/pattern4-footer.png) #3c3c3c repeat
+}
+
+#footer .top-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*min-width: 980px;*/
+    height: 50px;
+    background: url(../img/top-mask.png) no-repeat center top;
 }
 
     #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer a {

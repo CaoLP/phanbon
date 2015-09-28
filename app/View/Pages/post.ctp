@@ -1,20 +1,21 @@
 <article>
     <section class="section">
-	    <div class="background-media"
-             style="background-image: url('img/uploads/2015/09/DSC01327.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"
-             data-start="background-position: 50% -31px"
-             data-0-top-bottom="background-position: 50% 50px"></div>
-       
+	    <div class="background-overlay " style="background-color: #a00005;"></div>      
         <div class="container">
             <div class="row">
-                <header class="blog-header small-screen-center text-light col-md-12">
-                    <h1 class="text-left element-top-70 element-bottom-70 text-light big skrollable"><?php echo $category['PostCategory']['name'];?></h1>
-                    <ol class="breadcrumb breadcrumb-blog text-lowercase element-top-70">
-                        <li> <a href="<?php echo $this->Html->url('/'); ?>">
-                                Trang chủ</a>
-                        </li>
-                        <li class="active"><?php echo $category['PostCategory']['name'];?></li>
-                    </ol>
+                <header class="blog-header small-screen-left text-light col-md-12">
+					<h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn"
+                        data-os-animation-delay="0s">
+                        <?php echo $category['PostCategory']['name'];?>
+                    </h1>
+
+                    <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation"
+                         data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+                        <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
+                    </div>
+					
+					<p class="lead text-left center  text-light  element-bottom-70" data-os-animation="none"
+                       data-os-animation-delay="0s"> Tổng hợp hoạt động sản xuất, thông tin khuyến mãi và thông tin hữu ích về nông/công nghiệp! </p>					                  
                 </header>
             </div>
         </div>

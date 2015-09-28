@@ -1,16 +1,21 @@
 <article>
     <section class="section">
-        <div class="background-overlay" style="background-color: rgba(1,192,225,1);"></div>
+        <div class="background-overlay " style="background-color: #a00005;"></div>
         <div class="container">
             <div class="row">
-                <header class="blog-header small-screen-center text-light col-md-12">
-                    <h1 class="text-left element-top-70 element-bottom-70 text-light big">Thư viện hình ảnh</h1>
-                    <ol class="breadcrumb breadcrumb-blog text-lowercase element-top-70">
-                        <li> <a href="<?php echo $this->Html->url('/'); ?>">
-                                Trang chủ</a>
-                        </li>
-                        <li class="active">Thư viện</li>
-                    </ol>
+                <header class="blog-header small-screen-left text-light col-md-12">
+					<h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn"
+                        data-os-animation-delay="0s">
+                        Thư Viên Hình Ảnh Bioway-Hitech
+                    </h1>
+
+                    <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation"
+                         data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+                        <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
+                    </div>
+					
+					<p class="lead text-left center  text-light  element-bottom-70" data-os-animation="none"
+                       data-os-animation-delay="0s"> Thư viện hình ảnh các hoạt động của cty phân bón Bioway-Hitech</p>					                  
                 </header>
             </div>
         </div>

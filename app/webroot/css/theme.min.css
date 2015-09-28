@@ -3801,6 +3801,11 @@ body > .ui-datepicker {
     z-index: 2;
 }
 
+.overlay-load_background {
+   
+}
+
+
 .section .section .container {
     width: auto;
 }
@@ -8058,7 +8063,7 @@ h3 + .breadcrumb-blog {
 }
 
 .post-title a {
-    color: #ff0000!important;
+    color: #1c1c1c!important;
     font-weight:bold!important;
 }
 

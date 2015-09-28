@@ -1,28 +1,25 @@
 <article>
     <section class="section">
-    
-        <div class="background-overlay " style="background-color: rgba(225,0,0,0.8);"></div>
+		<div class="background-overlay " style="background-color: #a00005;"></div>
         <div class="container">
             <div class="row">
-                <div class="col-md-2  text-center"></div>
-                <div class="col-md-8  text-center">
-                    <h1 class="text-default  element-top-70 element-bottom-0 text-light os-animation big default"
-                        data-os-animation="fadeIn" data-os-animation-delay="0s">
+				<header class="blog-header small-screen-left text-light col-md-12">
+					<h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn"
+                        data-os-animation-delay="0s">
                         <?php echo $global['home_title']['value'];?>
                     </h1>
 
-                    <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
+                    <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation"
                          data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
                         <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
                     </div>
-                    <p class="lead text-center center text-light element-bottom-70" data-os-animation="none"
-                       data-os-animation-delay="0s">
-                        <?php echo $post['Post']['excert'];?>
-                    </p>
-                </div>
-                <div class="col-md-2 "></div>
+					
+					
+                    <p class="lead text-left center  text-light  element-bottom-70" data-os-animation="none"
+                       data-os-animation-delay="0s"> <?php echo $post['Post']['excert'];?></p>
+                </header>						               
             </div>
-        </div>
+        </div>			       
     </section>
     <section class="section">
         <div class="background-overlay"></div>
