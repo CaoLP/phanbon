@@ -58,7 +58,8 @@ class AppController extends Controller {
             if($this->request->action == 'admin_login'){
                 $this->layout = 'login';
             }else{
-                $this->layout = 'admin';
+                if($this->layout != 'ajax')
+                    $this->layout = 'admin';
             }
         }else{
             $this->loadModel('Post');

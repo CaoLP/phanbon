@@ -43,6 +43,13 @@
                 'action' => 'update_setting'
                 )
                 );?>';
+            var link_gallery = '<?php echo $this->Html->url(
+                array(
+                'admin' => true,
+                'controller' => 'galleries',
+                'action' => 'gallery_lists'
+                )
+                );?>';
         </script>
         <?php
     }

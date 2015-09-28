@@ -8,11 +8,19 @@
     </div>
     <div class="portfolio masonry no-transition magnific-all" data-col-lg="4" data-col-md="4"
          data-col-sm="4" data-col-xs="2" data-layout="fitRows" data-padding="15"
-         data-type="can-edit" data-key="home_medias" data-edit-type="media">
+         data-type="can-edit" data-key="home_medias" data-edit-type="media" data-id="<?php echo $data['Gallery']['id']?>">
         <?php foreach($data['Media'] as $k=>$d):?>
             <div class="masonry-item portfolio-item" data-title="<?php echo $data['Gallery']['name']?>">
                 <div
-                    class="figure portfolio-os-animation image-filter-blur image-filter-onhover fade-in from-right text-center figcaption-middle normalwidth"
+                    class="figure
+                    portfolio-os-animation
+                    image-filter-blur
+                    image-filter-onhover
+                    fade-in
+                    from-right
+                    text-center
+                    figcaption-middle
+                    normalwidth"
                     data-os-animation="bounceInDown" data-os-animation-delay="0.<?php echo $k;?>s">
                     <a class="figure-image" href="<?php echo $this->Html->url($d['file']);?>"
                        target="_self">

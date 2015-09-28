@@ -120,7 +120,11 @@ class SettingsController extends AppController {
         $setting = $this->Setting->find('first', array('conditions' => array('Setting.key' => $key)));
         if(empty($setting))
            die('false');
-        $setting =  json_decode($setting['data'],true);
-
+        $setting_data =  json_decode($setting['Setting']['data'],true);
+        foreach($this->request->data as $k=>$d){
+            $setting_data[$k]['value'] = $d;
+        }
+        $setting['Setting']['data'] = json_encode($setting_data);
+        die(($this->Setting->save($setting))? true : false);
     }
 }

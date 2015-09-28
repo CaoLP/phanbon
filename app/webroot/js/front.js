@@ -35,11 +35,11 @@ $(function () {
         });
     $(document).on('click', '.edit-block', function () {
         var is_edit = $(this).data('is_edit');
-        if(is_edit == undefined || !is_edit){
+        if (is_edit == undefined || !is_edit) {
             is_edit = true;
             $(this).data('is_edit', true);
             $(this).find('i').removeClass('glyphicon-edit').addClass('glyphicon-save');
-        }else{
+        } else {
             is_edit = false;
             $(this).data('is_edit', false);
             $(this).find('i').removeClass('glyphicon-save').addClass('glyphicon-edit');
@@ -49,35 +49,52 @@ $(function () {
             var _type = $(v).data('edit-type');
             var _key = $(v).data('key');
             if (typeof  _type != 'undefined') {
-                if(is_edit){
+                if (is_edit) {
                     switch (_type) {
                         case 'text':
                             $(v).html('<input type="text" class="form-control" name="' + _key + '" value="' + $(v).text().trim() + '">');
                             break;
                         case 'textarea':
-                            $(v).html('<textarea rows="10" class="form-control" name="' + _key + '">' + $(v).html().trim().replace(/(\r?\n)|(<br[\s*\/]?>)/gi, '\r\n') + '</textarea>');
+                            $(v).html('<textarea rows="10" class="form-control" name="' + _key + '">' + $(v).html().trim().replace(/(<br[\s*\/]?>)/gi, '') + '</textarea>');
                             break;
                         case 'media':
-                            var remove_btn = '<a href="javascript:;" class="btn btn-danger remove-img"><i class="glyphicon glyphicon-remove"></i></a>';
-                            $(v).append(remove_btn);
+                            $.ajax({
+                                url: link_gallery,
+                                data: {id: $(v).data('id')},
+                                type: 'post',
+                                success: function (response) {
+                                    $(v).parent().prepend(response);
+                                }
+                            });
                             break;
                     }
-                }else{
-                    if(_type != 'media'){
+                } else {
+                    if (_type != 'media') {
                         var value = $(v).find('input, textarea').val();
-                        data[_key]  = value;
+                        data[_key] = value;
                         $(v).html(value.replace(/\r?\n/g, '<br />'));
-                    }else{
-                        $(v).find('.remove-img').each(function(x,y){
-                            $(y).remove();
-                        });
+                    } else {
+                        var gallery = $(v).parent().find('#gallery_id');
+                        data[_key] = 'Gallery:gallery_block:{"id":' + gallery.val() + '}';
+                        gallery.parent().remove();
+
                     }
                 }
             }
 
         });
-        if(!is_edit){
-            console.log(data);
+        if (!is_edit) {
+            $.ajax(
+                {
+                    url: link_setting,
+                    data : data,
+                    type : 'post',
+                    success : function(response){
+                        if(response) window.location.reload();
+                        else alert('Gặp sự cố khi lưu dữ liệu');
+                    }
+                }
+            );
         }
 
     });
