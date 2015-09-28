@@ -30,3 +30,8 @@ h1.element-top-70{
 .divider-border-inner{
     background-color: #ff0000;
 }
+.remove-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

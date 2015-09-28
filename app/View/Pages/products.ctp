@@ -33,55 +33,43 @@
                 <div class="col-md-12">
                     <div class="list-container row element-top-60 element-bottom-60 os-animation"
                          data-os-animation="fadeIn" data-os-animation-delay="0s">
-                        <div class="col-md-6 element-bottom-20 text-center os-animation" data-os-animation="fadeIn"
-                             data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/img/product1.jpg" alt="Visualise"/>
+                        <?php foreach ($posts as $k => $post) : ?>
+                            <div class="col-md-6 element-bottom-20 text-center os-animation" data-os-animation="fadeIn"
+                                 data-os-animation-delay="0.<?php echo $k; ?>s"> <span class="service-simple-image">
+                                    <a href="<?php
+                                        echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
+                                    ?>">
+                                        <?php echo $this->Media->image($post['Post']['thumb'], 555, 282); ?>
+                                    </a>
                             </span>
 
-                            <h2>
-                                Phân sạch: N:1; P2O5:1,5; K2O:1+ TE
-                            </h2>
-
-                            <p> Không có phân vô cơ dùng để lót và được sử dụng chương trình sản phẩm hữu cơ ( gạo, rau
-                                màu, cây ăn trái). </p>
-                        </div>
-                        <div class="col-md-6 element-bottom-20 text-center os-animation" data-os-animation="fadeIn"
-                             data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/img/product2.jpg" alt="Research"/>
-                            </span>
-
-                            <h2>
-                                Phân hữu cơ vi sinh khoáng công thức: N:2; P2O5:5; K2O:2 ( 2-5-2)
-                            </h2>
-
-                            <p>Phân hữu cơ vi sinh khoáng công thức: N:2; P2O5:5; K2O:2 ( 2-5-2). Ưu thế dùng để lót các
-                                loại cây trồng nhất là Lúa, giải độc phèn, cải tạo đất.</p>
-                        </div>
-                        <div class="col-md-6 element-bottom-20 text-center os-animation" data-os-animation="fadeIn"
-                             data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/img/product3.jpg" alt="Develop"/>
-                            </span>
-
-                            <h2>
-                                Phân hữu cơ vi sinh khoáng công thức: N:9; P2O5:4; K2O:2 ( 9-4-2)
-                            </h2>
-
-                            <p> Phân hữu cơ vi sinh khoáng công thức: N:9; P2O5:4; K2O:2 ( 9-4-2). Được sử dụng bón
-                                thúc.</p>
-                        </div>
-                        <div class="col-md-6 element-bottom-20 text-center os-animation" data-os-animation="fadeIn"
-                             data-os-animation-delay="0s"> <span class="service-simple-image">
-                                <img src="/img/product4.jpg" alt="Time tracking"/>
-                            </span>
-
-                            <h2>
-                                Phân hữu cơ vi sinh khoáng công thức: N:6; P2O5:3; K2O:5 ( 6-3-5)
-                            </h2>
-
-                            <p> Phân hữu cơ vi sinh khoáng công thức: N:6; P2O5:3; K2O:5 ( 6-3-5). Được sử dụng kết hợp
-                                N-P-K bón đồng và thúc bông. </p>
-                        </div>
+                                <a href="<?php
+                                echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
+                                ?>">
+                                    <h2>
+                                        <?php echo $post['Post']['title']; ?>
+                                    </h2>
+                                </a>
+                                <p><?php echo $post['Post']['excert']; ?></p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <?php
+                    $params = $this->Paginator->params();
+                    if ($params['pageCount'] > 1) {
+                        ?>
+                        <ul class="pagination pagination-sm">
+                            <?php
+                            echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
+                            echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
+                            echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
+                            ?>
+                        </ul>
+                    <?php } ?>
                 </div>
             </div>
         </div>

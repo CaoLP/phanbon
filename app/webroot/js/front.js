@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+$(function () {
     jQuery('.tp-banner').show().revolution(
         {
             delay: 7000,
@@ -33,6 +33,56 @@ jQuery(document).ready(function () {
             fullWidth: "on",
             shadow: 0
         });
+    $(document).on('click', '.edit-block', function () {
+        var is_edit = $(this).data('is_edit');
+        if(is_edit == undefined || !is_edit){
+            is_edit = true;
+            $(this).data('is_edit', true);
+            $(this).find('i').removeClass('glyphicon-edit').addClass('glyphicon-save');
+        }else{
+            is_edit = false;
+            $(this).data('is_edit', false);
+            $(this).find('i').removeClass('glyphicon-save').addClass('glyphicon-edit');
+        }
+        var data = {};
+        $(this).closest('section').find('*[data-type=can-edit]').each(function (i, v) {
+            var _type = $(v).data('edit-type');
+            var _key = $(v).data('key');
+            if (typeof  _type != 'undefined') {
+                if(is_edit){
+                    switch (_type) {
+                        case 'text':
+                            $(v).html('<input type="text" class="form-control" name="' + _key + '" value="' + $(v).text().trim() + '">');
+                            break;
+                        case 'textarea':
+                            $(v).html('<textarea rows="10" class="form-control" name="' + _key + '">' + $(v).html().trim().replace(/(\r?\n)|(<br[\s*\/]?>)/gi, '\r\n') + '</textarea>');
+                            break;
+                        case 'media':
+                            var remove_btn = '<a href="javascript:;" class="btn btn-danger remove-img"><i class="glyphicon glyphicon-remove"></i></a>';
+                            $(v).find('.figure').each(function(x,y){
+                                $(y).append(remove_btn);
+                            });
+                            break;
+                    }
+                }else{
+                    if(_type != 'media'){
+                        var value = $(v).find('input, textarea').val();
+                        data[_key]  = value;
+                        $(v).html(value.replace(/\r?\n/g, '<br />'));
+                    }else{
+                        $(v).find('.remove-img').each(function(x,y){
+                            $(y).remove();
+                        });
+                    }
+                }
+            }
+
+        });
+        if(!is_edit){
+            console.log(data);
+        }
+
+    });
 });
 
 

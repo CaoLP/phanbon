@@ -29,12 +29,54 @@ Router::connect('/', array('controller' => 'pages', 'action' => 'home', 'home'))
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 Router::connect('/home', array('controller' => 'pages', 'action' => 'home', 'home'));
-Router::connect('/lienhe', array('controller' => 'pages', 'action' => 'contact', 'contact'));
-Router::connect('/post', array('controller' => 'pages', 'action' => 'post', 'post'));
-Router::connect('/post/*', array('controller' => 'pages', 'action' => 'post', 'post'));
-Router::connect('/hoidap', array('controller' => 'pages', 'action' => 'faq', 'faq'));
-Router::connect('/gallery', array('controller' => 'pages', 'action' => 'gallery', 'gallery'));
+Router::connect('/lien-he', array('controller' => 'pages', 'action' => 'contact', 'contact'));
 Router::connect('/admin', array('admin' => true, 'controller' => 'dashboard', 'action' => 'index'));
+
+foreach(Configure::read('cat_route_list') as $k=>$r){
+    Router::connect('/'. $r,
+        array(
+            'controller' => 'pages',
+            'action' => 'post',
+            'type'=> $r
+        ),
+        array(
+            'pass' => array('type')
+        )
+    );
+    Router::connect('/'.$r.'/:slug',
+        array(
+            'controller' => 'pages',
+            'action' => 'post',
+            'type'=> $r
+        ),
+        array(
+            'pass'=>array('type','slug')
+        )
+    );
+}
+//
+//Router::connect('/tin-tuc',
+//    array(
+//        'controller' => 'pages',
+//        'action' => 'post',
+//        'type'=> 'news'
+//    ),
+//    array(
+//        'pass' => array('type')
+//    )
+//);
+//Router::connect('/tin-tuc/:slug',
+//    array(
+//        'controller' => 'pages',
+//        'action' => 'post',
+//        'type'=> 'news'
+//    ),
+//    array(
+//        'pass'=>array('type','slug')
+//    )
+//);
+Router::connect('/gioi-thieu', array('controller' => 'pages', 'action' => 'aboutus'));
+Router::connect('/thu-vien', array('controller' => 'pages', 'action' => 'gallery'));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

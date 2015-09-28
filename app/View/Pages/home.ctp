@@ -29,7 +29,10 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
                 <div class="col-md-12">
                     <h1 class="text-center element-top-70 os-animation big"
                         data-os-animation="fadeIn"
-                        data-os-animation-delay="0s">
+                        data-os-animation-delay="0s"
+                        data-type="can-edit"
+                        data-key="home_title"
+                        data-edit-type="<?php echo $global['home_title']['type'];?>">
                         <?php echo $global['home_title']['value'];?>
                     </h1>
 
@@ -39,7 +42,8 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
                     </div>
                     <div class="lead text-center center element-bottom-40"
                        data-os-animation="none"
-                       data-os-animation-delay="0s">
+                       data-os-animation-delay="0s"  data-type="can-edit" data-key="home_des"
+                         data-edit-type="<?php echo $global['home_des']['type'];?>">
                         <?php echo nl2br($global['home_des']['value']);?>
                     </div>
 
@@ -53,9 +57,11 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
                             </div>
                         </div>
                         <div class="portfolio masonry no-transition magnific-all" data-col-lg="4" data-col-md="4"
-                             data-col-sm="4" data-col-xs="2" data-layout="fitRows" data-padding="15">
+                             data-col-sm="4" data-col-xs="2" data-layout="fitRows" data-padding="15"
+                             data-type="can-edit" data-key="home_medias" data-edit-type="media">
+
                             <div class="masonry-item portfolio-item filter-drinks filter-people"
-                                 data-title="Corporate animation">
+                                 data-title="Gallery">
                                 <div
                                     class="figure portfolio-os-animation image-filter-blur image-filter-onhover fade-in from-right text-center figcaption-middle normalwidth"
                                     data-os-animation="bounceInDown" data-os-animation-delay="0s">

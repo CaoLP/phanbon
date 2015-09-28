@@ -75,7 +75,7 @@ class Post extends AppModel {
 	public function top_products(){
 		return $this->find("all",array(
 			'conditions' => array(
-				'PostCategory.slug' => 'products'
+				'PostCategory.slug' => 'san-pham'
 			),
 			'limit' => 6
 		));

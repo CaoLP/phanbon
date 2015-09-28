@@ -30,4 +30,13 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+    public function getNextAutoNumber($model){
+        $result = $model->query("
+                            SELECT Auto_increment
+                            FROM information_schema.tables AS NextId
+                            WHERE table_name='".$model->table."'
+                            AND table_schema='".$model->getDataSource()->config['database']."'
+                            ");
+        return !empty($result[0]['NextId']['Auto_increment']) ? $result[0]['NextId']['Auto_increment'] : 1;
+    }
 }

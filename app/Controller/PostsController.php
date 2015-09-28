@@ -36,13 +36,13 @@ class PostsController extends AppController
                         )
                 )
             );
-            if(empty($post_category)) throw new NotFoundException();
+            if (empty($post_category)) throw new NotFoundException();
             $this->Paginator->settings = array(
                 'conditions' => array(
                     'PostCategory.slug' => $slug
                 )
             );
-            $params = array('type'=>$slug);
+            $params = array('type' => $slug);
         }
         $this->Post->recursive = 0;
         $this->set('posts', $this->Paginator->paginate());
@@ -73,6 +73,23 @@ class PostsController extends AppController
     public function admin_add()
     {
         $slug = $this->request->query('type');
+        if ($this->request->is(array('post', 'put'))) {
+            if (empty($this->request->data['Post']['slug']))
+                $this->request->data['Post']['slug'] = $this->make_slug($this->request->data['Post']['title']);
+            $this->Post->create();
+            if ($this->Post->save($this->request->data)) {
+                $this->Session->setFlash(__('The post has been saved.'), 'default', array('class' => 'alert alert-success'));
+                if (!empty($slug))
+                    return $this->redirect(array('action' => 'index','?'=>array('type' => $slug)));
+                else
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The post could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+            }
+        }
+        $id = $this->Post->getNextAutoNumber($this->Post);
+        $this->request->data('Post.id', $id);
+        $slug = $this->request->query('type');
         if (!empty($slug)) {
             $post_category = $this->Post->PostCategory->find('first',
                 array(
@@ -82,24 +99,13 @@ class PostsController extends AppController
                         )
                 )
             );
-            if(empty($post_category)) throw new NotFoundException();
+            if (empty($post_category)) throw new NotFoundException();
             $this->Paginator->settings = array(
                 'conditions' => array(
                     'PostCategory.slug' => $slug
                 )
             );
-            $this->request->data('Post.post_category_id',$post_category['PostCategory']['id']);
-        }
-        if ($this->request->is('post')) {
-            if (empty($this->request->data['Post']['slug']))
-                $this->request->data['Post']['slug'] = $this->make_slug($this->request->data['Post']['title']);
-            $this->Post->create();
-            if ($this->Post->save($this->request->data)) {
-                $this->Session->setFlash(__('The post has been saved.'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The post could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-            }
+            $this->request->data('Post.post_category_id', $post_category['PostCategory']['id']);
         }
         $postCategories = $this->Post->PostCategory->find('list');
         $this->set(compact('postCategories'));

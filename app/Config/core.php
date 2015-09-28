@@ -398,3 +398,10 @@ Configure::write('Site', array(
         'title' => 'BIOWAY-HITECH',
     )
 );
+Configure::write('cat_route_list', array(
+        'san-pham',
+        'tin-tuc',
+        'hoat-dong-cong-ty',
+        'ban-nha-nong',
+    )
+);

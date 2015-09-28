@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Gallery extends AppModel {
 
+	public $actsAs = array('Media');
 /**
  * Validation rules
  *

@@ -55,7 +55,7 @@ class PostCategoriesController extends AppController {
 				$this->Session->setFlash(__('The post category could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$parentPostCategories = $this->PostCategory->ParentPostCategory->find('list');
+		$parents = $this->PostCategory->ParentPostCategory->find('list');
 		$this->set(compact('parents'));
 	}
 
@@ -81,7 +81,7 @@ class PostCategoriesController extends AppController {
 			$options = array('conditions' => array('PostCategory.' . $this->PostCategory->primaryKey => $id));
 			$this->request->data = $this->PostCategory->find('first', $options);
 		}
-		$parentPostCategories = $this->PostCategory->ParentPostCategory->find('list');
+		$parents = $this->PostCategory->ParentPostCategory->find('list');
 		$this->set(compact('parents'));
 	}
 
@@ -173,8 +173,8 @@ class PostCategoriesController extends AppController {
 			$options = array('conditions' => array('PostCategory.' . $this->PostCategory->primaryKey => $id));
 			$this->request->data = $this->PostCategory->find('first', $options);
 		}
-		$parentPostCategories = $this->PostCategory->ParentPostCategory->find('list');
-		$this->set(compact('parentPostCategories'));
+		$parents = $this->PostCategory->ParentPostCategory->find('list');
+		$this->set(compact('parents'));
 	}
 
 /**

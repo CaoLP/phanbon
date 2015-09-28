@@ -12,79 +12,17 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="sidebar-widget widget_recent_entries">
-                        <h3 class="sidebar-header">Tin tức</h3>
-                        <ul>
-                            <li class="clearfix">
-                                <div class="post-icon">
-                                    <a href="" title="The know how of branding">
-                                        <?php echo $this->Html->image('hinh7.jpg', array(
-                                            'class'=>'attachment-thumbnail wp-post-image',
-                                            'height' => 150,
-                                            'width' => 150,
-                                        ))?>
-                                        </a>
-                                </div>
-                                <a href="" title="The know how of branding">Hiệu quả phân sinh học vi sinh Bioway sau 1 năm nhà máy hoạt động</a>
-                                <small class="post-date"> 25 tháng 8, 2015</small>
-                            </li>
-                            <li class="clearfix">
-                                <div class="post-icon">
-                                    <a href="" title="The know how of branding">
-                                        <?php echo $this->Html->image('new1.jpg', array(
-                                            'class'=>'attachment-thumbnail wp-post-image',
-                                            'height' => 150,
-                                            'width' => 150,
-                                        ))?>
-                                    </a>
-                                </div>
-                                <a href="" title="The know how of branding">Tự giới thiệu công ty cổ phần BIOWAY HITECH</a>
-                                <small class="post-date"> 25 tháng 8, 2015</small>
-                            </li>
-                            <li class="clearfix">
-                                <div class="post-icon">
-                                    <a href="" title="The know how of branding">
-                                        <?php echo $this->Html->image('new2.jpg', array(
-                                            'class'=>'attachment-thumbnail wp-post-image',
-                                            'height' => 150,
-                                            'width' => 150,
-                                        ))?>
-                                    </a>
-                                </div>
-                                <a href="" title="The know how of branding">Lễ Khai Trương Công ty Bioway Hightech</a>
-                                <small class="post-date"> 25 tháng 8, 2015</small>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>3))?>
                 </div>
                 <div class="col-sm-3">
-                    <div class="sidebar-widget widget_categories">
-                        <h3 class="sidebar-header">Mục lục</h3>
-                        <ul>
-                            <li><a href="post">
-                                    Tin tức & sự kiện
-                                </a></li>
-                            <li><a href="gallery">
-                                    Hình ảnh
-                                </a></li>
-                            <li><a href="gallery">
-                                    Video clip
-                                </a></li>
-                            <li><a href="hoidap">
-                                    Hỏi đáp
-                                </a></li>
-                            <li><a href="contact">
-                                    Liên hệ
-                                </a></li>
-                        </ul>
-                    </div>
+                    <?php echo $this->element('sidebar_cat')?>
                 </div>
                 <div class="col-sm-3">
                     <div class="sidebar-widget widget_text">
                         <h3 class="sidebar-header">Trụ sở chính</h3>
 
                         <div class="textwidget">
-                            <?php echo $this->Html->image('googlemaps2.jpg') ?>
+                            <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $global['google_latitude']['value']; ?>,<?php echo $global['google_longitude']['value']; ?>&zoom=14&size=270x198&maptype=roadmap&markers=color:green%7Clabel:C%7C<?php echo $global['google_latitude']['value']; ?>,<?php echo $global['google_longitude']['value']; ?>&sensor=false&key=AIzaSyC1MsSYQVcTF9NDJBrdlWyxK01h4tHqrXQ">
                         </div>
                     </div>
                 </div>

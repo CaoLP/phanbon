@@ -42,27 +42,33 @@
             <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
                 <div class="menu-container">
                     <ul class="nav navbar-nav" id="menu-main">
-                        <li class="menu-item active  ">
+                        <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/')) ? 'active' : '' ;?>">
                             <a href="<?php echo $this->Html->url('/') ?>">Trang chủ</a>
                         </li>
-                        <li class="menu-item   ">
-                            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'post', 'products')) ?>">Sản
+                        <li class="menu-item <?php
+                        echo ($this->request->here == $this->Html->url('/san-pham'))
+                        || (!empty($this->request->params['type']) &&$this->request->params['type'] == 'san-pham')
+                            ? 'active' : '' ;?>">
+                            <a href="<?php echo $this->Html->url('/san-pham'); ?>">Sản
                                 phẩm</a>
                         </li>
-                        <li class="menu-item   ">
-                            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'post')) ?>">Tin
+                        <li class="menu-item <?php
+                        echo ($this->request->here == $this->Html->url('/tin-tuc'))
+                        || (!empty($this->request->params['type']) &&$this->request->params['type'] == 'tin-tuc')
+                            ? 'active' : '' ;?>">
+                            <a href="<?php echo $this->Html->url('/tin-tuc'); ?>">Tin
                                 tức và sự kiện</a>
                         </li>
-                        <li class="menu-item   ">
-                            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'gallery')) ?>">Thư
+                        <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/thu-vien')) ? 'active' : '' ;?>">
+                            <a href="<?php echo $this->Html->url('/thu-vien') ?>">Thư
                                 viện</a>
                         </li>
-                        <li class="menu-item   ">
-                            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'post', 'gioi-thieu')) ?>">Giới
+                        <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/gioi-thieu')) ? 'active' : '' ;?>">
+                            <a href="<?php echo $this->Html->url('/gioi-thieu') ?>">Giới
                                 thiệu</a>
                         </li>
-                        <li class="menu-item   ">
-                            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'contact')) ?>">Liên
+                        <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/lien-he')) ? 'active' : '' ;?>">
+                            <a href="<?php echo $this->Html->url('/lien-he') ?>">Liên
                                 hệ</a>
                         </li>
                     </ul>

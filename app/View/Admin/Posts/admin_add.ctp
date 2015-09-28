@@ -13,7 +13,7 @@ $this->Html->addCrumb('<span>' . __('Admin Add Post') . '</span>');
     <div class="row">
         <div class="col-md-12">
             <?php echo $this->Form->create('Post', array('role' => 'form')); ?>
-
+            <?php echo $this->Form->hidden('id'); ?>
             <div class="form-group">
                 <?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title')); ?>
             </div>
@@ -30,7 +30,7 @@ $this->Html->addCrumb('<span>' . __('Admin Add Post') . '</span>');
                 <?php echo $this->Form->input('post_category_id', array('class' => 'form-control', 'placeholder' => 'Post Category Id')); ?>
             </div>
             <div class="form-group">
-                <?php echo $this->Media->iframe('Post', 0); ?>
+                <?php echo $this->Media->iframe('Post', $this->request->data('Post.id')); ?>
             </div>
             <div class="form-group">
                 <?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

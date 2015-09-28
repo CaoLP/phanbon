@@ -13,15 +13,15 @@
 	<div class="row">
 		<div class="col-md-12">
 			<?php echo $this->Form->create('Gallery', array('role' => 'form')); ?>
-
+			<?php echo $this->Form->hidden('id');?>
 				<div class="form-group">
 					<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('media_id', array('class' => 'form-control', 'placeholder' => 'Media Id'));?>
+					<?php echo $this->Form->input('descriptions', array('class' => 'form-control', 'placeholder' => 'Descriptions'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descriptions', array('class' => 'form-control', 'placeholder' => 'Descriptions'));?>
+					<?php echo $this->Media->iframe('Gallery', $this->request->data('Gallery.id')); ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

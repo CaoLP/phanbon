@@ -116,4 +116,11 @@ class SettingsController extends AppController {
         }
         return $this->redirect(array('action' => 'index'));
     }
+    public function admin_update_setting($key = 'global'){
+        $setting = $this->Setting->find('first', array('conditions' => array('Setting.key' => $key)));
+        if(empty($setting))
+           die('false');
+        $setting =  json_decode($setting['data'],true);
+
+    }
 }

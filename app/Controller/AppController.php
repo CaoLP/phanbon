@@ -60,6 +60,15 @@ class AppController extends Controller {
             }else{
                 $this->layout = 'admin';
             }
+        }else{
+            $this->loadModel('Post');
+            $recents = $this->Post->find('all', array(
+                'conditions' => array(),
+                'limit' => 5,
+                'order' => array('Post.created DESC'),
+                'recursive' => 0
+            ));
+            $this->set(compact('recents'));
         }
     }
     public function beforeFilter(){
@@ -231,7 +240,7 @@ class AppController extends Controller {
     }
     public function render_view($data, $block){
         $view = new View($this, false);
-        $view->set(compact($data));
+        $view->set(compact('data'));
         $view->layout = "";
         $html = $view->render('../Elements/Blocks/'.$block);
         return $html;
