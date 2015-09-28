@@ -1,6 +1,10 @@
 <article>
     <section class="section">
-        <div class="background-overlay" style="background-color: rgba(225,0,0,0.8);"></div>
+	    <div class="background-media"
+             style="background-image: url('img/uploads/2015/09/DSC01327.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"
+             data-start="background-position: 50% -31px"
+             data-0-top-bottom="background-position: 50% 50px"></div>
+       
         <div class="container">
             <div class="row">
                 <header class="blog-header small-screen-center text-light col-md-12">
@@ -92,18 +96,12 @@
                 </span></div>
                         </form>
                     </div>
-                    <div class="sidebar-widget widget_text">
-                        <h3 class="sidebar-header"><?php echo Configure::read('Site.title') ?></h3>
-
-                        <div class="textwidget">
-                            <?php echo nl2br($global['home_des']['value']); ?>
-                        </div>
-                    </div>
-
+                    
+					<?php echo $this->element('sidebar_cat') ?>
 
                     <?php echo $this->element('new_posts', array('data' => $recents)) ?>
 
-                    <?php echo $this->element('sidebar_cat') ?>
+                    
                 </div>
             </div>
         </div>
