@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 .animated {
 
@@ -8055,6 +8055,11 @@ h3 + .breadcrumb-blog {
     margin-bottom: 8px;
     line-height: 1.2em;
     font-weight: inherit;
+}
+
+.post-title a {
+    color: #ff0000!important;
+    font-weight:bold!important;
 }
 
 .post-head {

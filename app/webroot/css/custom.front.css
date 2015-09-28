@@ -3,16 +3,16 @@
     font-size: 15px;
 }
 .menu .nav>.active>a,.menu .nav>.active>a:focus,.menu .nav>.active>a:hover{
-    color: #ff0000;
+    color: #ff0000 !important;
 }
 .menu .nav>li>a:hover, .menu .nav>li>a:focus{
-    color: #ff0000;
+    color: #ff0000!important;
     background: 0 0;
 }
 .menu .nav>li>a:hover:before, .menu .nav>li>a:focus:before {
     opacity: 1;
     width: 100%;
-    background-color: #ff0000;
+    background-color: #ff0000!important;
 }
 .pace-counter .pace .pace-progress:after{
     color : #ff0000;
