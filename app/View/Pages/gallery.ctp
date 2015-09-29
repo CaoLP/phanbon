@@ -21,7 +21,7 @@
         </div>
     </section>
     <section class="section">
-        <div class="background-overlay" style="background-color: rgba(48,60,64,1);"></div>
+        
         <div class="container-fullwidth">
             <div class="row">
                 <div class="col-md-12">
