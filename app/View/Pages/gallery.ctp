@@ -25,17 +25,20 @@
         <div class="container-fullwidth">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="portfolio-container">
+                    <?php $no = 0;?>
+                    <?php foreach ($galleries as $gallery) :?>
+                        <div class="portfolio-container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="portfolio-header clearfix">
-                                    <div class="portfolio-filters pull-right"> </div>
+                                   <div class="portfolio-title pull-left">
+                                       <h3 class="color-white"><?php echo $gallery['Gallery']['name'] ;?></h3>
+                                   </div>
                                 </div>
                             </div>
                         </div>
                         <div class="portfolio masonry no-transition use-masonry" data-col-lg="6" data-col-md="4" data-col-sm="2" data-col-xs="1" data-layout="masonry" data-padding="0">
-                            <?php $no = 0;?>
-                            <?php foreach ($galleries as $gallery) :?>
+
                                 <?php foreach ($gallery['Media'] as $media) : $no++;?>
                                     <div class="masonry-item portfolio-item filter-nature masonry-wide"
                                          data-comments="0"
@@ -61,9 +64,9 @@
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
-                            <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
