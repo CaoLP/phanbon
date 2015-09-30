@@ -107,7 +107,15 @@ class PostsController extends AppController
             );
             $this->request->data('Post.post_category_id', $post_category['PostCategory']['id']);
         }
-        $postCategories = $this->Post->PostCategory->find('list');
+        if($slug) $conditions = array(
+            'OR' => array(
+                'PostCategory.parent_id' => $post_category['PostCategory']['id'],
+                'PostCategory.id' => $post_category['PostCategory']['id']
+            )
+        );
+        $postCategories = $this->Post->PostCategory->find('list', array(
+            'conditions' => $conditions
+        ));
         $this->set(compact('postCategories'));
     }
 

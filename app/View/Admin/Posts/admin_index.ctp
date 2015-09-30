@@ -19,6 +19,7 @@ $this->Html->addCrumb('<span>' . __('Post') . '</span>');
                 <thead>
                 <tr>
                     <th width="30%"><?php echo $this->Paginator->sort('title'); ?></th>
+                    <th><?php echo $this->Paginator->sort('label'); ?></th>
                     <th><?php echo $this->Paginator->sort('post_category_id'); ?></th>
                     <th><?php echo $this->Paginator->sort('tags'); ?></th>
                     <th><?php echo $this->Paginator->sort('created_by'); ?></th>
@@ -32,11 +33,12 @@ $this->Html->addCrumb('<span>' . __('Post') . '</span>');
                         <td>
                             <?php echo $this->Html->link($post['Post']['title'], array('action' => 'edit', $post['Post']['id']), array('escape' => false)); ?>
                         </td>
+                        <td><?php echo h($post['Post']['label']); ?></td>
                         <td>
                             <?php echo $this->Html->link($post['PostCategory']['name'], array('controller' => 'post_categories', 'action' => 'view', $post['PostCategory']['id'])); ?>
                         </td>
                         <td><?php echo h($post['Post']['tags']); ?></td>
-                        <td><?php echo h($post['Post']['created_by']); ?></td>
+                        <td><?php echo h($post['TrackableCreator']['name']); ?></td>
                         <td><?php echo h($post['Post']['created']); ?></td>
 
                         <td class="actions">

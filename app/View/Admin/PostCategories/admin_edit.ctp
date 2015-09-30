@@ -21,7 +21,7 @@
 					<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('slug', array('class' => 'form-control', 'placeholder' => 'Slug'));?>
+					<?php echo $this->Form->input('slug', array('class' => 'form-control', 'placeholder' => 'Slug', 'required'=>false, 'empty' => true));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('parent_id', array('class' => 'form-control', 'placeholder' => 'Parent Id', 'empty' => '-- Mục cha --'));?>

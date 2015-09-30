@@ -18,6 +18,9 @@ $this->Html->addCrumb('<span>' . __('Admin Add Post') . '</span>');
                 <?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title')); ?>
             </div>
             <div class="form-group">
+                <?php echo $this->Form->input('label', array('class' => 'form-control', 'placeholder' => 'Label')); ?>
+            </div>
+            <div class="form-group">
                 <?php echo $this->Form->input('excert', array('class' => 'form-control', 'placeholder' => 'Excert')); ?>
             </div>
             <div class="form-group">
