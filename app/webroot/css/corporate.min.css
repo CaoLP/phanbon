@@ -97,7 +97,12 @@ h1, h2, h3, h4, h5, h6 {
 #categories-5 a{
      color: #a00005!important;
 }
-
+#footer .container #categories-5 a{
+    color: #fff!important;
+}
+#footer .container ul li a{
+    color: #fff!important;
+}
 .widget_recent_entries ul li a{
     color: #1c1c1c!important;
 }

@@ -13,19 +13,15 @@
                         <div class="divider-border-inner" style="background:#ffffff; width:60px;"></div>
                     </div>
 					<p class="lead text-left center  text-light  element-bottom-70" data-os-animation="none"
-                       data-os-animation-delay="0s"> <span class="post-date">
-                                    <i class="icon-clock"></i> <?php echo date('\N\g\à\y d \t\h\á\n\g m \n\ă\m Y', strtotime($post['Post']['created']))?>
-                                </span>
-								<br>
-								<span class="post-category">
-                                    <i class="icon-clipboard"></i>
-                                    <a href="<?php echo $this->Html->url('/' . $post['PostCategory']['slug']); ?>" rel="tag">
-                                        <?php echo $post['PostCategory']['name'] ?></a></span>
-								
-								</p>
-					
-                    
-
+                       data-os-animation-delay="0s"> <?php echo $post['Post']['excert'] ;?> <br>
+							<span class="post-date">
+								<i class="icon-clock"></i> <?php echo date('\N\g\à\y d \t\h\á\n\g m \n\ă\m Y', strtotime($post['Post']['created']))?>
+                            </span>
+							<span class="post-category">
+                                <i class="icon-clipboard"></i><a href="<?php echo $this->Html->url('/' . $post['PostCategory']['slug']); ?>" rel="tag">
+                                        <?php echo $post['PostCategory']['name'] ?></a>
+								</span>								
+					</p>					                  
                     </div>
 					
 					

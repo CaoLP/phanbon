@@ -27,22 +27,17 @@
                     <?php foreach ($posts as $post) : ?>
                         <article class="post">
                             <?php if (isset($post['Post']['thumb'])) : ?>
-                                <div class="post-media">
-                                    <div class="figure fade-in text-center figcaption-middle">
+                                <div class="post-media media-left" >
+                                   
                                         <a class="figure-image"
                                            href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>">
-                                            <?php echo $this->Media->image($post['Post']['thumb'], 847, 400); ?>
-                                            <div class="figure-overlay">
-                                                <div class="figure-overlay-container">
-                                                    <div class="figure-caption">
-                                                        <span class="figure-overlay-icons"><i
-                                                                class="icon-link"></i></span></div>
-                                                </div>
-                                            </div>
+                                            <?php echo $this->Media->image($post['Post']['thumb'], 555, 282); ?>
+                                           
                                         </a>
-                                    </div>
+                                  
                                 </div>
                             <?php endif; ?>
+							<div class="post-body">
                             <header class="post-head small-screen-center">
                                 <h2 class="post-title">
                                     <a class="figure-image"
@@ -59,7 +54,7 @@
                     <?php echo $post['PostCategory']['name'] ?></a>
             </span></div>
                             </header>
-                            <div class="post-body">
+                            
                                 <?php echo $post['Post']['excert']; ?>
                             </div>
                             <div class="small-screen-center post-more">

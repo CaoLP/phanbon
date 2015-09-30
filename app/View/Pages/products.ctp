@@ -30,7 +30,7 @@
                     <div class="list-container row element-top-60 element-bottom-60 os-animation"
                          data-os-animation="fadeIn" data-os-animation-delay="0s">
                         <?php foreach ($posts as $k => $post) : ?>
-                            <div class="col-md-6 element-bottom-20 text-left os-animation" data-os-animation="fadeIn"
+                            <div class="col-md-4 element-bottom-20 text-left os-animation" data-os-animation="fadeIn"
                                  data-os-animation-delay="0.<?php echo $k; ?>s"> <span class="service-simple-image">
                                     <a href="<?php
                                         echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
@@ -42,11 +42,11 @@
                                 <a href="<?php
                                 echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
                                 ?>">
-                                    <h2>								
+                                    <h3  class="text-center" style="color:#a00005">								
                                       <?php echo substr($post['Post']['title'],0,73) ; ?>
-                                    </h2>
+                                    </h3>
                                 </a>
-                                <p><?php echo $post['Post']['excert']; ?></p>
+                                <p class="text-center"><?php echo $post['Post']['excert']; ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>
