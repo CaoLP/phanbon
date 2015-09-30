@@ -6,7 +6,7 @@
                 <header class="blog-header small-screen-left text-light col-md-12">
 					<h1 class="element-top-70 text-light os-animation normal default" data-os-animation="fadeIn"
                         data-os-animation-delay="0s">
-                        Thư Viên Hình Ảnh Bioway-Hitech
+                        Thư Viện Hình Ảnh Bioway Hitech
                     </h1>
 
                     <div class="divider-border divider-border-left element-top-10 element-bottom-10 os-animation"
@@ -15,7 +15,7 @@
                     </div>
 					
 					<p class="lead text-left center  text-light  element-bottom-70" data-os-animation="none"
-                       data-os-animation-delay="0s"> Thư viện hình ảnh các hoạt động của cty phân bón Bioway-Hitech</p>					                  
+                       data-os-animation-delay="0s"> Thư viện hình ảnh các hoạt động của công ty phân bón Bioway Hitech</p>					                  
                 </header>
             </div>
         </div>

@@ -25,44 +25,46 @@
             <div class="row element-top-50 element-bottom-50">
                 <div class="col-md-9 blog-list-layout-normal">
                     <?php foreach ($posts as $post) : ?>
-                        <article class="post">
+                        <div class="post" style="float:left">
                             <?php if (isset($post['Post']['thumb'])) : ?>
-                                <div class="post-media media-left" >
+                                <div class="post-media media-left"  style="float:left!important;padding:5px;" >
                                    
-                                        <a class="figure-image"
+                                        <a 
                                            href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>">
-                                            <?php echo $this->Media->image($post['Post']['thumb'], 555, 282); ?>
+                                            <?php echo $this->Media->image($post['Post']['thumb'], 360, 220); ?>
                                            
                                         </a>
                                   
                                 </div>
                             <?php endif; ?>
-							<div class="post-body">
-                            <header class="post-head small-screen-center">
-                                <h2 class="post-title">
+							<div class="small-screen-center post-more" style="padding-left:5px!important;">
+                       
+                                <h2 class="post-title" style="color:#a00005">
                                     <a class="figure-image"
                                        href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>"
                                        rel="bookmark"
                                        title="<?php echo $post['Post']['title']; ?>"><?php echo $post['Post']['title']; ?></a>
                                 </h2>
-
-                                <div class="post-details"> <span class="post-date">
+								<p><?php echo $post['Post']['excert']; ?></p>   
+                                <div class="post-details" style="margin:5px 0!important"> <span class="post-date" style="margin-bottom:5px!important">
                 <i class="icon-clock"></i> <?php echo date('\N\g\à\y d \t\h\á\n\g m \n\ă\m Y', strtotime($post['Post']['created'])) ?></span>
-                                    <span class="post-category">
-                <i class="icon-clipboard"></i>
+				<br>
+                                    <span class="post-category"><i class="icon-clipboard"></i>
                 <a href="<?php echo $this->Html->url('/' . $post['PostCategory']['slug']); ?>" rel="tag">
                     <?php echo $post['PostCategory']['name'] ?></a>
             </span></div>
-                            </header>
+                        
                             
-                                <?php echo $post['Post']['excert']; ?>
+                            
                             </div>
-                            <div class="small-screen-center post-more">
+							
+                            <div class="small-screen-center post-more" >
                                 <a
-                                    class="post-more-link btn btn-primary"
+                                    class="post-more-link btn btn-primary" style="margin-left:5px!important;"
                                     href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>">
-                                    xem thêm</a></div>
-                        </article>
+                                    xem thêm</a>
+							</div>
+                        </div>
                     <?php endforeach; ?>
                     <div class="text-right">
                         <?php

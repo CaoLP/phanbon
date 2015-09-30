@@ -44,6 +44,8 @@
                                 ?>">
                                     <h3  class="text-center" style="color:#a00005">								
                                       <?php echo substr($post['Post']['title'],0,73) ; ?>
+									<br>
+									  <?php echo $post['Post']['label'];?>
                                     </h3>
                                 </a>
                                 <p class="text-center"><?php echo $post['Post']['excert']; ?></p>
