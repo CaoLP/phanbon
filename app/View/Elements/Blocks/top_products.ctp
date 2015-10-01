@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center element-top-70 os-animation big" data-os-animation="fadeIn"
+                <h1 style="color:#a00005 !important" class="text-center element-top-70 os-animation big" data-os-animation="fadeIn"
                     data-os-animation-delay="0s">
                     Sản phẩm tiêu biểu
                     <?php if ($this->Session->check("Auth.User")) echo $this->Html->link(

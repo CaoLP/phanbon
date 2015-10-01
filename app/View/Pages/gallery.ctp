@@ -23,20 +23,22 @@
     <section class="section">
         
         <div class="container-fullwidth">
-            <div class="row">
+            <div class="row element-top-20 element-bottom-50">
                 <div class="col-md-12">
                     <?php $no = 0;?>
                     <?php foreach ($galleries as $gallery) :?>
                         <div class="portfolio-container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="portfolio-header clearfix">
-                                   <div class="portfolio-title pull-left">
-                                       <h3 class="color-white"><?php echo $gallery['Gallery']['name'] ;?></h3>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
+                     
+						<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big"
+									data-os-animation="fadeIn"
+									data-os-animation-delay="0s"><?php echo $gallery['Gallery']['name'] ;?>				 
+								</h3>
+
+								<div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
+									 data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+									<div class="divider-bo  rder-inner" style="width:60px;"></div>
+						</div>
+						
                         <div class="portfolio masonry no-transition use-masonry" data-col-lg="6" data-col-md="4" data-col-sm="2" data-col-xs="1" data-layout="masonry" data-padding="0">
 
                                 <?php foreach ($gallery['Media'] as $media) : $no++;?>

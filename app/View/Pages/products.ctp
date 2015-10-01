@@ -25,15 +25,26 @@
     <section class="section">
         <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0);"></div>
         <div class="container">
-            <div class="row element-top-50 element-bottom-50">
+            <div class="row element-top-20 element-bottom-50">
                 <div class="col-md-9">
                     <?php $posts = Set::combine($posts, '{n}.Post.id', '{n}', '{n}.Post.post_category_id');?>
                     <?php foreach ($cat_ids as $ky => $cat): ?>
                         <?php if (isset($posts[$ky])): ?>
                         <div class="row">
                             <div class="col-md-12">
-                                <h1><?php echo $cat; ?></h1>
-                                    <div class="list-container row element-top-60 element-bottom-60 os-animation"
+								<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big"
+									data-os-animation="fadeIn"
+									data-os-animation-delay="0s"><?php echo $cat; ?>					 
+								</h3>
+
+								<div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
+									 data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+									<div class="divider-bo  rder-inner" style="width:60px;"></div>
+								</div>
+								
+							   
+                                
+                                    <div class="list-container row os-animation"
                                          data-os-animation="fadeIn" data-os-animation-delay="0s">
                                         <?php
                                         $no = 0;
@@ -87,11 +98,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 sidebar ">
-                    <?php echo $this->element('sidebar_cat') ?>
-
-                    <?php echo $this->element('sidebar_pro') ?>
-
-                    <?php echo $this->element('new_posts', array('data' => $recents)) ?>
+                    <?php echo $this->element('sidebar_pro') ?>        
 
                 </div>
             </div>
