@@ -46,19 +46,12 @@
                             <a href="<?php echo $this->Html->url('/') ?>">Trang chủ</a>
                         </li>
                         <li class="menu-item <?php
-                        echo ($this->request->here == $this->Html->url('/san-pham'))
-                        || (!empty($this->request->params['type']) &&$this->request->params['type'] == 'san-pham')
-                            ? 'active' : '' ;?>">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Sản
-                                phẩm</a>
-                            <ul class="dropdown-menu dropdown-menu-left">
-                                <?php foreach($categories_menu['ChildPostCategory'] as $pro):?>
-                                    <li class="menu-item">
-                                        <a href="<?php echo $this->Html->url('/'.$pro['slug']);?>"><?php echo $pro['name'];?></a>
-                                    </li>
-                                <?php endforeach;?>
-                            </ul>
-
+                        echo (in_array($this->request->here,
+                            array($this->Html->url('/san-pham'),$this->Html->url('/huu-co-huu-co-khoang'), $this->Html->url('/huu-co-vi-sinh'), $this->Html->url('/huu-co-sinh-hoc'))))
+                        || (!empty($this->request->params['type'])
+                            && in_array($this->request->params['type'], array('san-pham','huu-co-huu-co-khoang', 'huu-co-vi-sinh', 'huu-co-sinh-hoc')) )
+                            ? 'active' : '' ;?> dropdown">
+                            <a href="<?php echo $this->Html->url('/san-pham');?>">Sản phẩm</a>
                         </li>
                         <li class="menu-item <?php
                         echo (in_array($this->request->here,
