@@ -87,7 +87,10 @@ class PagesController extends AppController
             $cat_ids = $this->PostCategory->find('list',
                 array(
                     'conditions' => array(
-                        'ParentPostCategory.slug' => $type
+                        'OR' => array(
+                            'PostCategory.slug' => $type,
+                            'ParentPostCategory.slug' => $type,
+                        )
                     ),
                     'recursive' => 1
                 )
@@ -119,7 +122,7 @@ class PagesController extends AppController
             );
             $posts = $this->Paginator->paginate('Post');
             $this->set(compact('posts'));
-            if($cat == 'san-pham') $this->view = 'products';
+            if(!empty(Configure::read('route_view')[$cat])) $this->view = Configure::read('route_view')[$cat];
             $this->set(compact('cat'));
         }
     }

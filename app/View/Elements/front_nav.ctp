@@ -49,8 +49,16 @@
                         echo ($this->request->here == $this->Html->url('/san-pham'))
                         || (!empty($this->request->params['type']) &&$this->request->params['type'] == 'san-pham')
                             ? 'active' : '' ;?>">
-                            <a href="<?php echo $this->Html->url('/san-pham'); ?>">Sản
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Sản
                                 phẩm</a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <?php foreach($categories_menu['ChildPostCategory'] as $pro):?>
+                                    <li class="menu-item">
+                                        <a href="<?php echo $this->Html->url('/'.$pro['slug']);?>"><?php echo $pro['name'];?></a>
+                                    </li>
+                                <?php endforeach;?>
+                            </ul>
+
                         </li>
                         <li class="menu-item <?php
                         echo (in_array($this->request->here,
@@ -61,8 +69,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Tin
                                 tức và sự kiện</a>
                             <ul class="dropdown-menu dropdown-menu-left">
-                                <li class="menu-item"><a href="<?php echo $this->Html->url('/ban-nha-nong'); ?>">Bạn nhà nông</a></li>
-                                <li class="menu-item"><a href="<?php echo $this->Html->url('/hoat-dong-cong-ty'); ?>">Hoạt động công ty</a></li>
+                                <?php foreach($news_menu['ChildPostCategory'] as $new):?>
+                                    <li class="menu-item">
+                                        <a href="<?php echo $this->Html->url('/'.$new['slug']);?>"><?php echo $new['name'];?></a>
+                                    </li>
+                                <?php endforeach;?>
                             </ul>
                         </li>
                         <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/thu-vien')) ? 'active' : '' ;?>">

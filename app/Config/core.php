@@ -400,8 +400,21 @@ Configure::write('Site', array(
 );
 Configure::write('cat_route_list', array(
         'san-pham',
+        'huu-co-vi-sinh',
+        'huu-co-huu-co-khoang',
+        'huu-co-sinh-hoc',
         'tin-tuc',
         'hoat-dong-cong-ty',
         'ban-nha-nong',
+    )
+);
+Configure::write('route_view', array(
+        'san-pham' => 'products',
+        'huu-co-vi-sinh' => 'products',
+        'huu-co-huu-co-khoang' => 'products',
+        'huu-co-sinh-hoc' => 'products',
+        'tin-tuc' => 'post',
+        'hoat-dong-cong-ty' => 'post',
+        'ban-nha-nong' => 'post',
     )
 );
