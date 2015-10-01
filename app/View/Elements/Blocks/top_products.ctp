@@ -27,8 +27,7 @@
                                     <div class="item active">
                                         <div class="row">
                                 <?php endif;?>
-                                <div
-                                    class="figure col-md-4 fade-in element-bottom-20 figcaption-bottom text-left fade-in os-animation"
+                                <div class="figure col-md-4 fade-in element-bottom-20 figcaption-bottom text-center fade-in os-animation"
                                     data-os-animation="fadeIn" data-os-animation-delay="0.1s">
                                     <div class="figure-image">
                                         <a href="<?php
@@ -57,15 +56,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="figure-caption text-left">
+                                    <div class="figure-caption text-center">
                                         <a href="<?php
                                         echo $this->Html->url('/san-pham/' . $d['Post']['slug']);
                                         ?>" title="<?php echo $d['Post']['title'];?>">
                                             <h3 class="figure-caption-title">
                                                 <?php echo $d['Post']['title'];?>
+											<br/> 
+												<?php echo $d['Post']['label'];?>
                                             </h3>
                                         </a>
-
+										
                                         <p class="figure-caption-description"> <?php echo $d['Post']['excert'];?> </p>
                                     </div>
                                 </div>

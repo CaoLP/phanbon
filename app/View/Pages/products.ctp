@@ -25,6 +25,16 @@
     <section class="section">
         <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0);"></div>
         <div class="container">
+		<div class="row element-top-50 element-bottom-50">
+		<div class="col-md-9">
+		
+
+		
+		
+		
+		
+		
+		
             <?php $posts = Set::combine($posts, '{n}.Post.id', '{n}','{n}.Post.post_category_id');?>
             <?php foreach($cat_ids as $ky=>$cat):?>
                 <div class="row">
@@ -79,7 +89,13 @@
                         </ul>
                     <?php } ?>
                 </div>
-            </div>
+            </div>						
+		</div>
+		<div class="col-md-3 sidebar ">                                       
+			<?php echo $this->element('sidebar_cat') ?>
+		        
+        </div>
+		</div>			
         </div>
     </section>
 </article>

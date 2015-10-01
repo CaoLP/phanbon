@@ -1049,12 +1049,15 @@ input[type="button"] {
 }
 
 .menu .dropdown-menu {
-    background-color: rgba(255,255,255,.9);
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,.1),0 3px 0 #a00005 inset;
+
 }
+
 
     .menu .dropdown-menu > li > a {
         color: #4c4c4c;
+		font-weight:bold;
     }
 
         .menu .dropdown-menu > li > a .menu-icon {

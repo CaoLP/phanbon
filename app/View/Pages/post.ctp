@@ -37,15 +37,15 @@
                                   
                                 </div>
                             <?php endif; ?>
-							<div class="small-screen-center post-more" style="padding-left:5px!important;">
+							<div class="small-screen-center post-more" >
                        
-                                <h2 class="post-title" style="color:#a00005">
+                                <h2 class="post-title" style="color:#a00005;margin:8px 5px!important">
                                     <a class="figure-image"
                                        href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>"
                                        rel="bookmark"
                                        title="<?php echo $post['Post']['title']; ?>"><?php echo $post['Post']['title']; ?></a>
                                 </h2>
-								<p><?php echo $post['Post']['excert']; ?></p>   
+								<p  style="margin:8px 5px!important"><?php echo $post['Post']['excert']; ?></p>   
                                 <div class="post-details" style="margin:5px 0!important"> <span class="post-date" style="margin-bottom:5px!important">
                 <i class="icon-clock"></i> <?php echo date('\N\g\à\y d \t\h\á\n\g m \n\ă\m Y', strtotime($post['Post']['created'])) ?></span>
 				<br>
@@ -81,25 +81,9 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="col-md-3 sidebar ">
-                    <div class="sidebar-widget widget_search">
-                        <form action="" id="searchform" method="get"
-                              name="searchform">
-                            <div class="input-group">
-                                <input class="form-control" name="s" placeholder="Search" type="text" value=""> <span
-                                    class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" value="Search">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span></div>
-                        </form>
-                    </div>
-                    
+                <div class="col-md-3 sidebar ">                                       
 					<?php echo $this->element('sidebar_cat') ?>
-
-                    <?php echo $this->element('new_posts', array('data' => $recents)) ?>
-
-                    
+                    <?php echo $this->element('new_posts', array('data' => $recents)) ?>             
                 </div>
             </div>
         </div>

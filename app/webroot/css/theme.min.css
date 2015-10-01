@@ -3429,6 +3429,9 @@ pre {
 }
 
 @media (max-width:992px) {
+.post-media img {
+width: 992px !important;
+}
     .small-screen-center {
         text-align: center !important;
     }
@@ -3441,6 +3444,7 @@ pre {
         text-align: right !important;
     }
 }
+
 
 @media (max-width:767px) {
     h1 {
@@ -9483,6 +9487,7 @@ h3 + .breadcrumb-blog {
     vertical-align: middle;
 }
 
+.figure-caption  h3 { color:#a00005 !important}
 .figcaption-bottom .figure-caption {
     vertical-align: bottom;
 }

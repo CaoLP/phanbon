@@ -27,7 +27,7 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="text-center element-top-70 os-animation big"
+                    <h1 style="color:#a00005 !important" class="text-center element-top-70 os-animation big"
                         data-os-animation="fadeIn"
                         data-os-animation-delay="0s"
                         data-type="can-edit"
