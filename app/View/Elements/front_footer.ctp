@@ -3,7 +3,7 @@
 	    <div class="top-mask"></div>
         <div class="container">
             <div class="row element-top-60 element-bottom-40 footer-columns-4">
-                <div class="col-sm-5">
+                <div class="col-sm-3">
                     <div class="sidebar-widget widget_text" id="text-2">
                         <h3 class="sidebar-header">Cty Cổ Phần Phân Bón BIOWAY-HITECH</h3>
 					 <p><?php echo $global['address_center']['value']; ?>
@@ -16,9 +16,12 @@
                     </div>
                 </div>
 				<div class="col-sm-3">
+                    <?php echo $this->element('sidebar_pro') ?>
+                </div>
+                <div class="col-sm-3">
                     <?php echo $this->element('sidebar_cat')?>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>3))?>
                 </div>
                 

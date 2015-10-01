@@ -96,5 +96,8 @@ class PostCategory extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+	public function find_sub($slug){
+		$res = $this->find('first',array('conditions'=>array('PostCategory.slug' => $slug)));
+		return $res;
+	}
 }

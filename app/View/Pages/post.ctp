@@ -81,9 +81,15 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="col-md-3 sidebar ">                                       
+                <div class="col-md-3 sidebar ">
+                                      
 					<?php echo $this->element('sidebar_cat') ?>
-                    <?php echo $this->element('new_posts', array('data' => $recents)) ?>             
+
+					<?php echo $this->element('sidebar_pro') ?>
+
+                    <?php echo $this->element('new_posts', array('data' => $recents)) ?>
+
+                    
                 </div>
             </div>
         </div>

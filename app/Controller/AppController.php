@@ -70,6 +70,15 @@ class AppController extends Controller {
                 'recursive' => 0
             ));
             $this->set(compact('recents'));
+//            modal cat
+            $this->loadModel('PostCategory');
+//            post_categories
+            $news_menu = $this->PostCategory->find_sub('tin-tuc');
+//            product_categories
+            $categories_menu = $this->PostCategory->find_sub('san-pham');
+
+            $this->set(compact('news_menu','categories_menu'));
+
         }
     }
     public function beforeFilter(){
@@ -114,7 +123,6 @@ class AppController extends Controller {
                 $this->set(compact('media_block_html'));
             }
             $this->set(compact('global','block_html'));
-
         }
     }
     public function canUploadMedias($model, $id){
