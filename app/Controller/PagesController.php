@@ -92,7 +92,7 @@ class PagesController extends AppController
                     'recursive' => 1
                 )
             );
-            $this->set(compact('category'));
+            $this->set(compact('category','cat_ids'));
         }
         if($type != null && $slug != null){
             $post = $this->Post->find('first',array(
@@ -105,6 +105,8 @@ class PagesController extends AppController
             $this->view = 'detail';
         }elseif($type != null){
             $cat = $type;
+            $limit = 10;
+            if($cat == 'san-pham') $limit = 30;
             $this->Paginator->settings = array(
                 'conditions' => array(
                     'OR' => array(
@@ -112,7 +114,8 @@ class PagesController extends AppController
                         'PostCategory.slug' => $cat
                     )
                 ),
-                'recursive' => 0
+                'recursive' => 0,
+                'limit' => $limit
             );
             $posts = $this->Paginator->paginate('Post');
             $this->set(compact('posts'));

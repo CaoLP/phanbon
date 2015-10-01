@@ -73,9 +73,18 @@ class Post extends AppModel {
 		)
 	);
 	public function top_products(){
+		$cats = $this->PostCategory->find('list', array(
+			'conditions' => array(
+				'OR' => array(
+					'PostCategory.slug' => 'san-pham',
+					'ParentPostCategory.slug' => 'san-pham'
+				)
+			),
+			'recursive' => 1
+		));
 		return $this->find("all",array(
 			'conditions' => array(
-				'PostCategory.slug' => 'san-pham'
+				'PostCategory.id' => array_keys($cats)
 			),
 			'limit' => 6
 		));

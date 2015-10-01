@@ -25,35 +25,45 @@
     <section class="section">
         <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0);"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="list-container row element-top-60 element-bottom-60 os-animation"
-                         data-os-animation="fadeIn" data-os-animation-delay="0s">
-                        <?php foreach ($posts as $k => $post) : ?>
-                            <div class="col-md-4 element-bottom-20 text-left os-animation" data-os-animation="fadeIn"
-                                 data-os-animation-delay="0.<?php echo $k; ?>s"> <span class="service-simple-image">
+            <?php $posts = Set::combine($posts, '{n}.Post.id', '{n}','{n}.Post.post_category_id');?>
+            <?php foreach($cat_ids as $ky=>$cat):?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><?php echo $cat;?></h1>
+                    <?php if(isset($posts[$ky])): ?>
+                        <div class="list-container row element-top-60 element-bottom-60 os-animation"
+                             data-os-animation="fadeIn" data-os-animation-delay="0s">
+                            <?php
+                            $no = 0;
+                            foreach ($posts[$ky] as $k => $post) :
+                            $no++;
+                            ?>
+                                <div class="col-md-4 element-bottom-20 text-left os-animation" data-os-animation="fadeIn"
+                                     data-os-animation-delay="0.<?php echo $no; ?>s"> <span class="service-simple-image">
                                     <a href="<?php
-                                        echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
+                                    echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
                                     ?>">
                                         <?php echo $this->Media->image($post['Post']['thumb'], 555, 282); ?>
                                     </a>
                             </span>
-
-                                <a href="<?php
-                                echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
-                                ?>">
-                                    <h3  class="text-center" style="color:#a00005">								
-                                      <?php echo substr($post['Post']['title'],0,73) ; ?>
-									<br>
-									  <?php echo $post['Post']['label'];?>
-                                    </h3>
-                                </a>
-                                <p class="text-center"><?php echo $post['Post']['excert']; ?></p>
-                            </div>
-                        <?php endforeach; ?>
+                                    <a href="<?php
+                                    echo $this->Html->url('/san-pham/' . $post['Post']['slug']);
+                                    ?>">
+                                        <h3  class="text-center" style="color:#a00005">
+                                            <?php echo substr($post['Post']['title'],0,73) ; ?>
+                                            <br>
+                                            <?php echo $post['Post']['label'];?>
+                                        </h3>
+                                    </a>
+                                    <p class="text-center"><?php echo $post['Post']['excert']; ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif;?>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
+
             <div class="row">
                 <div class="col-md-12 text-right">
                     <?php

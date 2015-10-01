@@ -53,15 +53,22 @@
                                 phẩm</a>
                         </li>
                         <li class="menu-item <?php
-                        echo ($this->request->here == $this->Html->url('/tin-tuc'))
-                        || (!empty($this->request->params['type']) &&$this->request->params['type'] == 'tin-tuc')
-                            ? 'active' : '' ;?>">
-                            <a href="<?php echo $this->Html->url('/tin-tuc'); ?>">Tin
+                        echo (in_array($this->request->here,
+                            array($this->Html->url('/tin-tuc'),$this->Html->url('/hoat-dong-cong-ty'), $this->Html->url('/ban-nha-nong'))))
+                        || (!empty($this->request->params['type'])
+                            && in_array($this->request->params['type'], array('tin-tuc','hoat-dong-cong-ty', 'ban-nha-nong')) )
+                            ? 'active' : '' ;?> dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Tin
                                 tức và sự kiện</a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li class="menu-item"><a href="<?php echo $this->Html->url('/ban-nha-nong'); ?>">Bạn nhà nông</a></li>
+                                <li class="menu-item"><a href="<?php echo $this->Html->url('/hoat-dong-cong-ty'); ?>">Hoạt động công ty</a></li>
+                            </ul>
                         </li>
                         <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/thu-vien')) ? 'active' : '' ;?>">
                             <a href="<?php echo $this->Html->url('/thu-vien') ?>">Thư
                                 viện</a>
+
                         </li>
                         <li class="menu-item <?php echo ($this->request->here == $this->Html->url('/gioi-thieu')) ? 'active' : '' ;?>">
                             <a href="<?php echo $this->Html->url('/gioi-thieu') ?>">Giới
