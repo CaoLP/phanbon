@@ -38,3 +38,20 @@ h1.element-top-70{
 .color-white{
     color: #fff;
 }
+
+@media (max-width: 768px) {
+    .sm-menu{
+        display: block !important;
+    }
+    .pc-menu{
+        display: none !important;
+    }
+}
+@media (min-width: 769px) {
+    .sm-menu{
+        display: none !important;
+    }
+    .pc-menu{
+        display: block !important;
+    }
+}

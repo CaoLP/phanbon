@@ -218,4 +218,9 @@ class UsersController extends AppController {
 			}
 		}
 	}
+	public function admin_logout()
+	{
+		$this->Session->setFlash(__('Good-Bye'), 'message', array('class' => 'alert-success'));
+		$this->redirect($this->Auth->logout());
+	}
 }

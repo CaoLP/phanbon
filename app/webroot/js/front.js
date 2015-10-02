@@ -96,8 +96,16 @@ $(function () {
                 }
             );
         }
-
     });
+    $('*[data-event="hover-toggle"]').hover(function(){
+        if(document.body.clientWidth > 768 && !$(this).hasClass('open')){
+            $(this).addClass('open');
+        }
+    },function(){
+        if(document.body.clientWidth > 768 && $(this).hasClass('open')) {
+            $(this).removeClass('open');
+        }
+    })
 });
 
 

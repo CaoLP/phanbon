@@ -50,16 +50,26 @@
                             array($this->Html->url('/san-pham'),$this->Html->url('/huu-co-huu-co-khoang'), $this->Html->url('/huu-co-vi-sinh'), $this->Html->url('/huu-co-sinh-hoc'))))
                         || (!empty($this->request->params['type'])
                             && in_array($this->request->params['type'], array('san-pham','huu-co-huu-co-khoang', 'huu-co-vi-sinh', 'huu-co-sinh-hoc')) )
-                            ? 'active' : '' ;?> dropdown">
-                            <a href="<?php echo $this->Html->url('/san-pham');?>">Sản phẩm</a>
+                            ? 'active' : '' ;?> dropdown" data-event="hover-toggle">
+                            <a href="<?php echo $this->Html->url('/san-pham');?>" class="pc-menu">Sản phẩm</a>
+                            <a href="#" class="dropdown-toggle sm-menu" data-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <?php foreach($categories_menu['ChildPostCategory'] as $cat):?>
+                                    <li class="menu-item">
+                                        <a href="<?php echo $this->Html->url('/'.$cat['slug']);?>"><?php echo $cat['name'];?></a>
+                                    </li>
+                                <?php endforeach;?>
+                            </ul>
                         </li>
                         <li class="menu-item <?php
                         echo (in_array($this->request->here,
                             array($this->Html->url('/tin-tuc'),$this->Html->url('/hoat-dong-cong-ty'), $this->Html->url('/ban-nha-nong'))))
                         || (!empty($this->request->params['type'])
                             && in_array($this->request->params['type'], array('tin-tuc','hoat-dong-cong-ty', 'ban-nha-nong')) )
-                            ? 'active' : '' ;?> dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Tin
+                            ? 'active' : '' ;?> dropdown" data-event="hover-toggle">
+                            <a href="<?php echo $this->Html->url('/tin-tuc');?>" class="pc-menu">Tin
+                                tức và sự kiện</a>
+                            <a href="#" class="dropdown-toggle sm-menu" data-toggle="dropdown" aria-expanded="false">Tin
                                 tức và sự kiện</a>
                             <ul class="dropdown-menu dropdown-menu-left">
                                 <?php foreach($news_menu['ChildPostCategory'] as $new):?>
