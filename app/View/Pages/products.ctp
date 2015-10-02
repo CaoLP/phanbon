@@ -23,6 +23,26 @@
         </div>
     </section>
     <section class="section">
+	<style>
+		.border_red_radius{
+			border: 3px solid #a00005 !important;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			 border-radius: 5px;
+		}
+		
+		.list-container:after {
+			content: "";
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			position: absolute;
+			bottom: -48px;
+			left: 0;
+			right: 0;
+			height: 1px;
+					}
+	</style>
+	
         <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0);"></div>
         <div class="container">
             <div class="row element-top-20 element-bottom-50">
@@ -30,9 +50,9 @@
                     <?php $posts = Set::combine($posts, '{n}.Post.id', '{n}', '{n}.Post.post_category_id');?>
                     <?php foreach ($cat_ids as $ky => $cat): ?>
                         <?php if (isset($posts[$ky])): ?>
-                        <div class="row">
-                            <div class="col-md-12">
-								<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big"
+                        <div class="row ">
+                            <div class="col-md-12 ">
+								<h3 style="color:#a00005 !important " class="text-center border_red_radius element-top-0 os-animation big"
 									data-os-animation="fadeIn"
 									data-os-animation-delay="0s"><?php echo $cat; ?>					 
 								</h3>
@@ -44,8 +64,8 @@
 								
 							   
                                 
-                                    <div class="list-container row os-animation"
-                                         data-os-animation="fadeIn" data-os-animation-delay="0s">
+                                    <div class="list-container row os-animation "
+                                         data-os-animation="fadeIn" data-os-animation-delay="0s ">
                                         <?php
                                         $no = 0;
                                         foreach ($posts[$ky] as $k => $post) :

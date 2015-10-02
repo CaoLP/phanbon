@@ -35,11 +35,10 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
                         data-edit-type="<?php echo $global['home_title']['type'];?>">
                         <?php echo $global['home_title']['value'];?>
                     </h1>
-
-                    <div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
-                         data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
-                        <div class="divider-bo  rder-inner" style="width:60px;"></div>
-                    </div>
+					<div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
+						 data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">
+						<div class="divider-border-inner" style="width:60px;"></div>
+					</div>
                     <div class="lead text-center center element-bottom-40"
                        data-os-animation="none"
                        data-os-animation-delay="0s"  data-type="can-edit" data-key="home_des"

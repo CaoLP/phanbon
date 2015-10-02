@@ -21,7 +21,17 @@
         </div>
     </section>
     <section class="section">
-        
+        <style>
+		.border_red_radius{
+			border: 3px solid #a00005 !important;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			 border-radius: 5px;
+		}
+		
+		
+	</style>
+	
         <div class="container-fullwidth">
             <div class="row element-top-20 element-bottom-50">
                 <div class="col-md-12">
@@ -29,7 +39,7 @@
                     <?php foreach ($galleries as $gallery) :?>
                         <div class="portfolio-container">
                      
-						<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big"
+						<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big border_red_radius"
 									data-os-animation="fadeIn"
 									data-os-animation-delay="0s"><?php echo $gallery['Gallery']['name'] ;?>				 
 								</h3>

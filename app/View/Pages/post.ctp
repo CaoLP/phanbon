@@ -1,5 +1,7 @@
 <article>
     <section class="section">
+	
+	
 	    <div class="background-overlay " style="background-color: #a00005;"></div>      
         <div class="container">
             <div class="row">
@@ -21,6 +23,14 @@
         </div>
     </section>
     <section class="section">
+	<style>
+		.post-media img{
+			border: 1px solid #a00005 !important;
+			-webkit-border-radius: 7px;
+			-moz-border-radius: 7px;
+			 border-radius: 7px;
+		}
+	</style>	
         <div class="container">
             <div class="row element-top-50 element-bottom-50">
                 <div class="col-md-9 blog-list-layout-normal">
@@ -39,8 +49,8 @@
                             <?php endif; ?>
 							<div class="small-screen-center post-more" >
                        
-                                <h2 class="post-title" style="color:#a00005;margin:8px 5px!important">
-                                    <a class="figure-image"
+                                <h2 class="post-title" style="color:#a00005!important;margin:8px 5px!important">
+                                    <a class="figure-image" style="color:#a00005!important"
                                        href="<?php echo $this->Html->url('/' . $cat . '/' . $post['Post']['slug']); ?>"
                                        rel="bookmark"
                                        title="<?php echo $post['Post']['title']; ?>"><?php echo $post['Post']['title']; ?></a>
@@ -85,7 +95,6 @@
                                       
 					<?php echo $this->element('sidebar_cat') ?>
 
-					<?php echo $this->element('sidebar_pro') ?>
 
                     <?php echo $this->element('new_posts', array('data' => $recents)) ?>
 
