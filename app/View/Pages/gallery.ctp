@@ -39,10 +39,10 @@
                     <?php foreach ($galleries as $gallery) :?>
                         <div class="portfolio-container">
                      
-						<h3 style="color:#a00005 !important" class="text-center element-top-0 os-animation big border_red_radius"
-									data-os-animation="fadeIn"
-									data-os-animation-delay="0s"><?php echo $gallery['Gallery']['name'] ;?>				 
-								</h3>
+						<h3 style="color:#a00005 !important;margin-left: 30px; margin-right: 30px;" 
+							class="text-center element-top-0 os-animation big border_red_radius"
+							data-os-animation="fadeIn"
+							data-os-animation-delay="0s"><?php echo $gallery['Gallery']['name'] ;?></h3>
 
 								<div class="divider-border divider-border-center element-top-10 element-bottom-10 os-animation"
 									 data-os-animation="fadeIn" data-os-animation-delay="0.1s" style="height:3px;">

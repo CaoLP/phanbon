@@ -22,6 +22,17 @@
         </div>			       
     </section>
     <section class="section">
+<style>
+.hinh_anh img{
+	border: 1px solid #a00005 !important;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	 border-radius: 5px;
+	margin-bottom:10px;
+}
+		
+		
+</style>
         <div class="background-overlay"></div>
         <div class="container">
             <div class="row">
