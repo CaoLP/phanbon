@@ -22,7 +22,7 @@
             </div>
             <a href="<?php echo $this->Html->url('/'. $post['PostCategory']['slug'] . '/' . $post['Post']['slug']) ?>"
                title="<?php echo $post['Post']['title']?>"><?php echo $post['Post']['title']?></a>
-            <small class="post-date"><?php echo date('\N\g\à\y d \t\h\á\n\g m \n\ă\m Y', strtotime($post['Post']['created']))?></small>
+            
         </li>
     <?php endforeach; ?>
     </ul>

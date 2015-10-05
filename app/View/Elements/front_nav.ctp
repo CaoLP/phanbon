@@ -10,21 +10,7 @@
                 <div class="textwidget"><i class="fa fa-phone"></i>
                     &nbsp; <?php echo $global['address_hotline']['value']; ?> </div>
             </div>
-        </div>
-        <div class="top top-right">
-            <div class="sidebar-widget text-right small-screen-center widget_social">
-                <ul class="unstyled inline social-icons social-simple social-normal">
-                    <li>
-                        <a data-iconcolor="#3b5998" href="<?php echo $global['facebook_page']['value']; ?>"> <i
-                                class="fa fa-facebook"></i> </a>
-                    </li>
-                    <li>
-                        <a data-iconcolor="#E45135" href="<?php echo $global['google_plus']['value']; ?>"> <i
-                                class="fa fa-google-plus"></i> </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </div>       
     </div>
 </div>
 <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky" id="masthead">
@@ -36,7 +22,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<?php echo $this->Html->url('/') ?>">
-                <?php echo $this->Html->image('logo.png'); ?>
+                <?php echo $this->Html->image('logo.png'); ?> 
             </a></div>
         <div class="nav-container">
             <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
@@ -94,21 +80,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="menu-sidebar">
-                    <div class="sidebar-widget widget_search" id="search-5">
-                        <form action="" method="get" name="searchform">
-                            <div class="input-group">
-                                <input class="form-control" name="s" placeholder="Search" type="text"> <span
-                                    class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit" value="Search">
-                                        <span class="input-group-btn">
-                                            <i class="fa fa-search"></i>
-                                        </span></button>
-                                    </span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </nav>
         </div>
     </div>

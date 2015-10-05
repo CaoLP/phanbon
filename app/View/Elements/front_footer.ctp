@@ -3,9 +3,9 @@
 	    <div class="top-mask"></div>
         <div class="container">
             <div class="row element-top-60 element-bottom-40 footer-columns-4">
-                <div class="col-sm-3">
+                <div class="col-sm-5">
                     <div class="sidebar-widget widget_text" id="text-2">
-                        <h3 class="sidebar-header">Cty Cổ Phần Phân Bón BIOWAY-HITECH</h3>
+                        <h3 class="sidebar-header"><?php echo $global['home_title']['value']; ?></h3>
 					 <p><?php echo $global['address_center']['value']; ?>
 					<br> <i class="fa fa-phone"></i> &nbsp; <?php echo $global['address_phone']['value']; ?>
 					<br> <i class="fa fa-inbox"></i> &nbsp; <?php echo $global['address_fax']['value']; ?>
@@ -18,11 +18,9 @@
 				<div class="col-sm-3">
                     <?php echo $this->element('sidebar_pro') ?>
                 </div>
-                <div class="col-sm-3">
-                    <?php echo $this->element('sidebar_cat')?>
-                </div>
-                <div class="col-sm-3">
-                    <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>3))?>
+                
+                <div class="col-sm-4">
+                    <?php echo $this->element('new_posts', array('data'=>$recents, 'limit'=>4))?>
                 </div>
                 
                
