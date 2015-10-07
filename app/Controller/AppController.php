@@ -85,6 +85,7 @@ class AppController extends Controller {
         //if($this->Session->check('use_debug') && $this->Session->read('use_debug')){
             $this->Toolbar = $this->Components->load('DebugKit.Toolbar');
         //}
+        $this->set('title_for_layout', Configure::read('Site.title'));
         if($this->request->prefix != "admin"){
             $this->Auth->allow();
             $this->loadModel('Setting');
@@ -124,6 +125,9 @@ class AppController extends Controller {
             }
             $this->set(compact('global','block_html'));
         }
+    }
+    public function setTitle($title){
+        $this->set('title_for_layout', $title);
     }
     public function canUploadMedias($model, $id){
 //        if($model == 'User' & $id = $this->Session->read('Auth.User.id')){

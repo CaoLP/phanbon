@@ -24,7 +24,7 @@
     <?php echo $this->Html->css(array('theme.min', 'corporate.min', 'extras.min', 'custom.front')); ?>
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!--    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -3,13 +3,12 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
 ?>
 <article>
     <section class="section">
-        <div class="container-fullwidth">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tp-banner-container">
-                        <div id="rev_slider_2_1" class="tp-banner">
-                            <?php echo $slide['slide']['value'];?>
-                            <div class="tp-bannertimer"></div>
+        <div class="container-fullwidth container-vertical-default">
+            <div class="row vertical-default">
+                <div class="col-md-12  text-default small-screen-default">
+                    <div class="wpb_revslider_element wpb_content_element">
+                        <div class="forcefullwidth_wrapper_tp_banner" style="position:relative;width:100%;height:auto;margin-top:0px;margin-bottom:0px">
+                            <?php echo html_entity_decode($slide['slide']['value']);?>
                         </div>
                     </div>
                 </div>
@@ -76,16 +75,16 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
         },
         siteLoader: 'on'
     };
-    $(document).ready(function() {
-        $('#myCarousel').carousel({
-            interval: 5000
-        });
-
-        $('#myCarousel').on('slid.bs.carousel', function() {
-            //alert("slid");
-        });
-
-
-    });
+//    $(document).ready(function() {
+//        $('#myCarousel').carousel({
+//            interval: 5000
+//        });
+//
+//        $('#myCarousel').on('slid.bs.carousel', function() {
+//            //alert("slid");
+//        });
+//
+//
+//    });
 
 </script>

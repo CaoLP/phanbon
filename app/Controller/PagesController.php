@@ -54,11 +54,12 @@ class PagesController extends AppController
     {
         $slide = $this->Setting->getCacheSetting('slide');
         $this->set(compact('slide'));
+        $this->setTitle('Trang chủ');
     }
 
     public function contact()
     {
-
+        $this->setTitle('Liên hệ');
     }
 
     public function faq()
@@ -95,6 +96,7 @@ class PagesController extends AppController
                     'recursive' => 1
                 )
             );
+            $this->setTitle($category['PostCategory']['name']);
             $this->set(compact('category','cat_ids'));
         }
         if($type != null && $slug != null){
@@ -106,6 +108,7 @@ class PagesController extends AppController
             if(empty($post)) throw new NotFoundException(__('Không tìm thấy bài viết này'));
             $this->set(compact('post'));
             $this->view = 'detail';
+            $this->setTitle($post['Post']['title']);
         }elseif($type != null){
             $cat = $type;
             $limit = 10;
@@ -129,11 +132,15 @@ class PagesController extends AppController
 
     public function gallery($id = null)
     {
+        $this->setTitle('Thư viện hình ảnh');
         $this->loadModel('Gallery');
         if($id == null){
             $galleries = $this->Gallery->find('all', array(
                 'conditions' => array(
 
+                ),
+                'order' => array(
+                    'Gallery.id DESC'
                 )
             ));
             $this->set(compact('galleries'));
@@ -142,6 +149,7 @@ class PagesController extends AppController
 
     public function aboutus()
     {
+        $this->setTitle('Giới thiệu');
         $this->loadModel('Post');
         $post = $this->Post->find('first', array(
             'conditions' => array(
