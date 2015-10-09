@@ -1,19 +1,26 @@
-<div class="top-bar">
-    <div class="container">
-        <div class="top top-left">
-            <div class="sidebar-widget text-left small-screen-center widget_text">
-                <div class="textwidget"><i class="fa fa-envelope"></i>&nbsp; <a
-                        href="mailto:<?php echo $global['address_email']['value']; ?>"><?php echo $global['address_email']['value']; ?></a>
+<div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky" id="masthead">
+    <div class="top-bar">
+        <div class="container">
+            <div class="top top-left">
+                <div class="sidebar-widget text-left small-screen-center widget_text">
+                    <div class="textwidget"><i class="fa fa-envelope"></i>&nbsp; <a
+                            href="mailto:<?php echo $global['address_email']['value']; ?>"><?php echo $global['address_email']['value']; ?></a>
+                    </div>
+                </div>
+                <div class="sidebar-widget text-left small-screen-center widget_text">
+                    <div class="textwidget"><i class="fa fa-phone"></i>
+                        &nbsp; <?php echo $global['address_hotline']['value']; ?> </div>
                 </div>
             </div>
-            <div class="sidebar-widget text-left small-screen-center widget_text">
-                <div class="textwidget"><i class="fa fa-phone"></i>
-                    &nbsp; <?php echo $global['address_hotline']['value']; ?> </div>
+            <div class="top top-right weather-wrapper hidden">
+                <img id="temp-icon">
+                <span id="temp"></span>
+                <span id="place"></span>
+                <span id="humidity">Độ ẩm: <span id="h"></span></span>
+                <span id="wind">Gió: <span id="w"></span></span>
             </div>
-        </div>       
+        </div>
     </div>
-</div>
-<div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky" id="masthead">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">

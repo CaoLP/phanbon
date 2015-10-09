@@ -1,3 +1,5 @@
+var lat = 10.789445229763634;
+var lng = 106.70250899346362;
 $(function () {
     //jQuery('.tp-banner').show().revolution(
     //    {
@@ -105,7 +107,39 @@ $(function () {
         if(document.body.clientWidth > 768 && $(this).hasClass('open')) {
             $(this).removeClass('open');
         }
-    })
+    });
+    $('#temp').openWeather({
+        lat: lat,
+        lng : lng,
+        //minTemperatureTarget: '#temp-min',
+        //maxTemperatureTarget: '#temp-max',
+        humidityTarget: '#h',
+        placeTarget: '#place',
+        windSpeedTarget: '#w',
+        iconTarget: '#temp-icon',
+        customIcons: 'images/weather/',
+        success: function() {
+            $('.weather-wrapper').removeClass('hidden');
+        },
+        error: function() {
+            console.log("These aren't the droids you're looking for.");
+        }
+    });
 });
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(){
+            console.log(position);
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+        });
+
+    } else {
+
+    }
+}
+
+
 
 

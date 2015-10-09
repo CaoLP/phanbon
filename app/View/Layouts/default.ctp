@@ -67,7 +67,7 @@
 </div>
 <a class="go-top go-top-circle" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
 <?php
-echo $this->Html->script(array('theme.min', 'revolution.min', 'front'));
+echo $this->Html->script(array('theme.min', 'revolution.min','openWeather.min', 'front'));
 echo $this->fetch('script');
 ?>
 </body>

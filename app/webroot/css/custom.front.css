@@ -38,6 +38,50 @@ h1.element-top-70{
 .color-white{
     color: #fff;
 }
+.weather-wrapper{
+    position: relative;
+    height: 52px;
+}
+#place{
+    display: block;
+    margin-right: 55px;
+    font-size: 14px;
+    line-height: 20px;
+}
+#humidity{
+    font-size: 11px;
+    display: block;
+    margin-right: 55px;
+    line-height: 14px;
+}
+#wind{
+    margin-right: 55px;
+    line-height: 14px;
+    font-size: 11px;
+    display: block;
+}
+#temp{
+    color: red;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    right: -10px;
+    top: 0;
+    z-index: 1;
+}
+#temp-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#content{
+    margin-top: 20px;
+}
 
 @media (max-width: 768px) {
     .sm-menu{
@@ -48,6 +92,9 @@ h1.element-top-70{
     }
 }
 @media (min-width: 769px) {
+    .top-bar .top-left{
+        padding-top: 8px;
+    }
     .sm-menu{
         display: none !important;
     }
