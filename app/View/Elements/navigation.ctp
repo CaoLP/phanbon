@@ -1,3 +1,4 @@
+<?php $userinfo = AuthComponent::user();?>
 <nav role="navigation" class="navbar navbar-custom">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,10 +26,10 @@
 
           </a></li>
         <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo AuthComponent::user()['name'];?> <b class="caret"></b></a>
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $userinfo['name'];?> <b class="caret"></b></a>
           <ul role="menu" class="dropdown-menu">
-            <li class="dropdown-header"><?php echo AuthComponent::user()['name'];?></li>
-            <li><a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'edit',AuthComponent::user()['id']));?>"><?php echo __('Edit account')?></a></li>
+            <li class="dropdown-header"><?php echo $userinfo['name'];?></li>
+            <li><a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'edit',$userinfo['id']));?>"><?php echo __('Edit account')?></a></li>
             <li class="divider"></li>
             <li class=""><a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'logout'));?>"><?php echo __('Sign out')?></a></li>
           </ul>

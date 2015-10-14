@@ -46,6 +46,10 @@ echo $this->Html->script(array('https://maps.googleapis.com/maps/api/js?sensor=f
                                 <div class="visible-md element-height-60"></div>
                                 <div class="visible-lg element-height-60"></div>
                             </div>
+                            <div class="contact-form-success">
+                                Cảm ơn bạn đã quan tâm đến <?php echo Configure::read('Site.title');?> <br>
+                                Chúng tôi sẽ liên lạc lại bạn trong thời gian sớm nhất
+                            </div>
                             <form id="contactForm" action="" class="contact-form">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -74,7 +78,7 @@ echo $this->Html->script(array('https://maps.googleapis.com/maps/api/js?sensor=f
                                               placeholder="Nội dung liên hệ" rows="10" required=""></textarea>
                                 </div>
                                 <div class="text-right">
-                                    <input type="submit" value="Send email" class="btn btn-primary"></div>
+                                    <input type="submit" value="Liên hệ" class="btn btn-primary"></div>
                                 <div id="messages" class="text-right"></div>
                             </form>
                             <div class="divider-wrapper">

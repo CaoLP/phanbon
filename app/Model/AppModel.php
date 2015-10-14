@@ -30,6 +30,8 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+    public $actsAs = array('Trackable');
+
     public function getNextAutoNumber($model){
         $result = $model->query("
                             SELECT Auto_increment

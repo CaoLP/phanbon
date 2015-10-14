@@ -19,6 +19,7 @@
  */
 
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Static content controller
@@ -60,6 +61,50 @@ class PagesController extends AppController
     public function contact()
     {
         $this->setTitle('Liên hệ');
+        if($this->request->is('post')){
+            $this->loadModel('Contact');
+            $save_data = array(
+                'Contact' => array(
+                    'name'=> $this->request->data('name'),
+                    'address'=> $this->request->data('address'),
+                    'phone'=> $this->request->data('phone'),
+                    'email'=> $this->request->data('email'),
+                    'title'=> 'Liên hệ : ' . $this->request->data('name'),
+                    'descriptions'=> $this->request->data('message'),
+                )
+            );
+            if($this->Contact->save($save_data)){
+                $Email = new CakeEmail('smtp');
+                $Email->emailFormat('text')
+                    ->subject($save_data['Contact']['title']);
+                $this->loadModel('Setting');
+                $mail_lists = $this->Setting->getCacheSetting('mail_receiver');
+                $mail_lists = explode(';', $mail_lists['emails']['value']);
+                $mail_lists = array_filter($mail_lists);
+//                $mail_lists = Configure::read('mail_receiver');
+                if($mail_lists){
+                    $Email->to($mail_lists);
+                    $content = "
+Người gửi : {$save_data['Contact']['name']} \n
+Số điện thoại : {$save_data['Contact']['phone']} \n
+Email : {$save_data['Contact']['email']} \n
+Địa chỉ : {$save_data['Contact']['address']} \n
+Nội dung liên hệ : {$save_data['Contact']['descriptions']}\n\n\n
+                    ";
+                    $Email->send($content);
+                }
+
+                echo json_encode(array(
+                    'status' => 'ok',
+                    'messages' => array(
+                        'Cảm ơn bạn đã quan tâm đến BIOWAY-HITECH <br>Chúng tôi sẽ liên lạc lại bạn trong thời gian sớm nhất'
+                    )
+                ));
+                die;
+            }else{
+                echo 'ng'; die;
+            }
+        }
     }
 
     public function faq()
@@ -125,7 +170,8 @@ class PagesController extends AppController
             );
             $posts = $this->Paginator->paginate('Post');
             $this->set(compact('posts'));
-            if(!empty(Configure::read('route_view')[$cat])) $this->view = Configure::read('route_view')[$cat];
+            $view_route = Configure::read('route_view');
+            if(!empty($view_route[$cat])) $this->view = $view_route[$cat];
             $this->set(compact('cat'));
         }
     }

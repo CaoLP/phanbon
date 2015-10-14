@@ -37,15 +37,25 @@ class PostsController extends AppController
                 )
             );
             if (empty($post_category)) throw new NotFoundException();
+            $cat_ids = $this->Post->PostCategory->find('list',
+                array(
+                    'conditions' => array(
+                        'OR' => array(
+                            'PostCategory.slug' => $slug,
+                            'ParentPostCategory.slug' => $slug,
+                        )
+                    ),
+                    'recursive' => 1
+                )
+            );
             $this->Paginator->settings = array(
                 'conditions' => array(
-                    'PostCategory.slug' => $slug
+                    'Post.post_category_id' => array_keys($cat_ids)
                 )
             );
             $params = array('type' => $slug);
         }
-        $this->Post->recursive = 0;
-        $this->set('posts', $this->Paginator->paginate());
+        $this->set('posts', $this->Paginator->paginate('Post'));
         $this->set(compact('params'));
     }
 

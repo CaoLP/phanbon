@@ -418,3 +418,10 @@ Configure::write('route_view', array(
         'ban-nha-nong' => 'post',
     )
 );
+Configure::write('mail_receiver', array(
+//        'info@biowayhitech.com',
+//        'camtien@biowayhitech.com',
+//        'lelinh@biowayhitech.com',
+//        'phuc_hau_tran@yahoo.com'
+    )
+);
