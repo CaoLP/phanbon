@@ -3,13 +3,13 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
 ?>
 <article>
     <section class="section">
-        <div class="container-fullwidth container-vertical-default">
-            <div class="row vertical-default">
-                <div class="col-md-12  text-default small-screen-default">
-                    <div class="wpb_revslider_element wpb_content_element">
-                        <div class="forcefullwidth_wrapper_tp_banner" style="position:relative;width:100%;height:auto;margin-top:0px;margin-bottom:0px">
+        <div class="container-fullwidth">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tp-banner-container">
+                       
                             <?php echo html_entity_decode($slide['slide']['value']);?>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -39,9 +39,9 @@ echo $this->Html->css(array('dynamic-captions.css','static-captions.css'),array(
 						<div class="divider-border-inner" style="width:60px;"></div>
 					</div>
                     <div class="lead text-center center element-bottom-40"
-                       data-os-animation="none"
+                       data-os-animation="none" style="font-family: sans-serif;" "
                        data-os-animation-delay="0s"  data-type="can-edit" data-key="home_des"
-                         data-edit-type="<?php echo $global['home_des']['type'];?>">
+                         data-edit-type="<?php echo $global['home_des']['type'];?>" >
                         <?php echo nl2br($global['home_des']['value']);?>
                     </div>
 

@@ -6,11 +6,13 @@ body {
     font-weight: 400;
 }
 
-    body, body input, body textarea, body .btn, body button {
+    body, body input,body .btn, body button {
         /*font-family: 'Open Sans Condensed', sans-serif,sans-serif;*/
         font-family: 'Open Sans','Lobster', sans-serif;
     }
-
+.home_des {
+	font-family: sans-serif !important;
+}
 blockquote p {
     font-size: 24px;
     font-weight: 400;
