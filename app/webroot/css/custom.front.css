@@ -91,7 +91,7 @@ h1.element-top-70{
     margin-top: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .sm-menu{
         display: block !important;
     }
@@ -99,7 +99,7 @@ h1.element-top-70{
         display: none !important;
     }
 }
-@media (min-width: 769px) {
+@media (min-width: 991px) {
     .top-bar .top-left{
         padding-top: 8px;
 		padding-bottom:8px;

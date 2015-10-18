@@ -100,14 +100,21 @@ $(function () {
         }
     });
     $('*[data-event="hover-toggle"]').hover(function(){
-        if(document.body.clientWidth > 768 && !$(this).hasClass('open')){
+        if(document.body.clientWidth > 991 && !$(this).hasClass('open')){
             $(this).addClass('open');
         }
     },function(){
-        if(document.body.clientWidth > 768 && $(this).hasClass('open')) {
+        if(document.body.clientWidth > 991 && $(this).hasClass('open')) {
             $(this).removeClass('open');
         }
     });
+    //$('*[data-event="hover-toggle"]').on('click', function(e){
+    //    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    //        e.preventDefault();
+    //    }else{
+    //
+    //    }
+    //});
     $('#temp').openWeather({
         lat: lat,
         lng : lng,
