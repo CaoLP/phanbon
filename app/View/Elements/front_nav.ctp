@@ -2,23 +2,28 @@
     <div class="top-bar">
         <div class="container">
             <div class="top top-left">
-                <div class="sidebar-widget text-left small-screen-center widget_text">
-                    <div class="textwidget"><i class="fa fa-envelope"></i>&nbsp; <a
-                            href="mailto:<?php echo $global['address_email']['value']; ?>"><?php echo $global['address_email']['value']; ?></a>
-                    </div>
+                <div class="sidebar-widget text-left small-screen-left widget_text">
+                    <img id="temp-icon">
+					<span id="temp"></span>
+                    <div class="textwidget">
+						 <span id="place"></span>
+						 <span id="humidity">Độ ẩm: <span id="h"></span></span>
+						 <span id="wind">Gió: <span id="w"></span></span>
+					</div>
                 </div>
-                <div class="sidebar-widget text-left small-screen-center widget_text">
-                    <div class="textwidget"><i class="fa fa-phone"></i>
-                        &nbsp; <?php echo $global['address_hotline']['value']; ?> </div>
+                <div class="sidebar-widget text-right small-screen-left widget_text">
+					<div class="textwidget">
+							<span  id="humidity2"><i class="fa fa-envelope"></i>&nbsp; 
+							<a href="mailto:<?php echo $global['address_email']['value']; ?>"><?php echo $global['address_email']['value']; ?></a></span>
+	
+							<span id="humidity3"><i class="fa fa-phone"></i>&nbsp;
+							<?php echo $global['address_phone']['value']; ?> </span>
+					</div>
+				
+					
                 </div>
             </div>
-            <div class="top top-right weather-wrapper hidden">
-                <img id="temp-icon">
-                <span id="temp"></span>
-                <span id="place"></span>
-                <span id="humidity">Độ ẩm: <span id="h"></span></span>
-                <span id="wind">Gió: <span id="w"></span></span>
-            </div>
+            
         </div>
     </div>
     <div class="container">
