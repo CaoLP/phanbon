@@ -118,3 +118,29 @@ h1.element-top-70{
     margin-top: 50px;
     font-weight: bold;
 }
+@media (max-width: 991px) {
+    .sticky-wrapper{
+        height: auto !important;
+    }
+    .menu .navbar-brand img {
+        width: auto;
+        height: 50px;
+        top: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .navbar-toggle{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .navbar-brand{
+        line-height: 50px;
+        height: auto;
+    }
+    #content{
+        margin-top: 0px;
+    }
+}
